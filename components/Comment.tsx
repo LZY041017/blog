@@ -22,7 +22,7 @@ export default function Comment() {
     script.setAttribute("data-repo", "LZY041017/blog");
     script.setAttribute("data-repo-id", "R_kgDOTP-5Tg");
     script.setAttribute("data-category", "General");
-    script.setAttribute("data-category-id", "YOUR_CATEGORY_ID"); // 请从 giscus.app 获取
+    script.setAttribute("data-category-id", "DIC_kwDOTP-5Ts4DAr3z");
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-strict", "0");
     script.setAttribute("data-reactions-enabled", "1");
