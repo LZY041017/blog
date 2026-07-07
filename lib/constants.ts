@@ -11,8 +11,8 @@ export const SITE_CONFIG = {
   },
   nav: [
     { label: "首页", href: "/" },
-    { label: "技术", href: "/tags/技术" },
-    { label: "随想", href: "/tags/随想" },
+    { label: "技术", href: "/tech" },
+    { label: "随想", href: "/thoughts" },
     { label: "关于", href: "/about" },
   ],
   postsPerPage: 10,
