@@ -2,7 +2,7 @@
 title: "免费搭建个人博客：Next.js + GitHub Pages 完整教程"
 date: "2026-07-07"
 description: "从零开始，手把手教你用 Next.js 和 GitHub Pages 搭建一个免费、高速、支持暗色模式的个人博客。无需服务器，无需备案，全程免费。"
-tags: ["教程", "Next.js", "GitHub", "前端"]
+tags: ["技术", "Next.js", "GitHub", "前端"]
 author: "Lu Zhiyong"
 ---
 

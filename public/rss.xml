@@ -6,14 +6,55 @@
     <link>https://lzy041017.github.io/blog</link>
     <atom:link href="https://lzy041017.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Jul 2026 06:00:06 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 10:57:10 GMT</lastBuildDate>
     
+    <item>
+      <title><![CDATA[博客美化指南：组件、动效与个性化定制]]></title>
+      <description><![CDATA[从主题配色到动画效果，手把手教你如何让博客更好看、更有趣。基于本博客的实际代码结构，每个技巧都能立刻上手。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/blog-customization-guide</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/blog-customization-guide</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
+      <category>CSS</category>
+      <category>动效</category>
+      <category>前端</category>
+    </item>
+    <item>
+      <title><![CDATA[免费搭建个人博客：Next.js + GitHub Pages 完整教程]]></title>
+      <description><![CDATA[从零开始，手把手教你用 Next.js 和 GitHub Pages 搭建一个免费、高速、支持暗色模式的个人博客。无需服务器，无需备案，全程免费。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/free-blog-tutorial</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/free-blog-tutorial</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
+      <category>Next.js</category>
+      <category>GitHub</category>
+      <category>前端</category>
+    </item>
+    <item>
+      <title><![CDATA[博客图片上传完全指南]]></title>
+      <description><![CDATA[三种方法在博客中使用图片，从最简单到最灵活，总有一种适合你。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/how-to-use-images</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/how-to-use-images</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
+      <category>教程</category>
+    </item>
+    <item>
+      <title><![CDATA[夏夜随想]]></title>
+      <description><![CDATA[一个夏夜的零碎想法，关于读书、创造和生活的节奏。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/summer-night-thoughts</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/summer-night-thoughts</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <category>随想</category>
+      <category>生活</category>
+    </item>
     <item>
       <title><![CDATA[Tailwind CSS 使用技巧]]></title>
       <description><![CDATA[分享一些 Tailwind CSS 的实用技巧和最佳实践，提升你的开发效率。]]></description>
       <link>https://lzy041017.github.io/blog/posts/tailwind-tips</link>
       <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/tailwind-tips</guid>
       <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
       <category>CSS</category>
       <category>Tailwind</category>
       <category>前端</category>
@@ -24,6 +65,7 @@
       <link>https://lzy041017.github.io/blog/posts/hello-world</link>
       <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/hello-world</guid>
       <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
       <category>博客</category>
       <category>Next.js</category>
       <category>前端</category>

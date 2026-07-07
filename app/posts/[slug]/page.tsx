@@ -7,6 +7,7 @@ import { getAllSlugs, getPostBySlug, getReadingTime } from "@/lib/posts";
 import { SITE_CONFIG } from "@/lib/constants";
 import MarkdownContent from "@/components/MarkdownContent";
 import TagBadge from "@/components/TagBadge";
+import Comment from "@/components/Comment";
 import Link from "next/link";
 
 interface Props {
@@ -122,6 +123,9 @@ export default async function PostPage({ params }: Props) {
           ))}
         </div>
       </div>
+
+      {/* Comments */}
+      <Comment />
     </div>
   );
 }

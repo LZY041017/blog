@@ -2,7 +2,7 @@
 title: "Tailwind CSS 使用技巧"
 date: "2026-07-05"
 description: "分享一些 Tailwind CSS 的实用技巧和最佳实践，提升你的开发效率。"
-tags: ["CSS", "Tailwind", "前端"]
+tags: ["技术", "CSS", "Tailwind", "前端"]
 author: "方言"
 ---
 
