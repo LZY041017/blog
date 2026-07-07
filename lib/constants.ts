@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   description: "记录思考，分享技术，书写生活。",
   author: "Lu Zhiyong",
   locale: "zh-CN",
-  url: "https://luzhiyong.blog",
+  url: "https://lzy041017.github.io/blog",
   social: {
     github: "https://github.com",
     twitter: "",
