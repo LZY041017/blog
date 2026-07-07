@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><![CDATA[Lu_Zhiyong's Blog]]></title>
+    <description><![CDATA[记录思考，分享技术，书写生活。]]></description>
+    <link>https://lzy041017.github.io/blog</link>
+    <atom:link href="https://lzy041017.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 07 Jul 2026 05:59:31 GMT</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Tailwind CSS 使用技巧]]></title>
+      <description><![CDATA[分享一些 Tailwind CSS 的实用技巧和最佳实践，提升你的开发效率。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/tailwind-tips</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/tailwind-tips</guid>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 GMT</pubDate>
+      <category>CSS</category>
+      <category>Tailwind</category>
+      <category>前端</category>
+    </item>
+    <item>
+      <title><![CDATA[你好，世界！]]></title>
+      <description><![CDATA[这是我的第一篇博客文章，记录博客搭建的过程和想法。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/hello-world</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/hello-world</guid>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <category>博客</category>
+      <category>Next.js</category>
+      <category>前端</category>
+    </item>
+  </channel>
+</rss>

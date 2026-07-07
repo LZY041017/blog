@@ -5,7 +5,8 @@
   "description": "Personal blog built with Next.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-rss.mjs && next build",
+    "rss": "node scripts/generate-rss.mjs",
     "start": "next start",
     "lint": "next lint"
   },
