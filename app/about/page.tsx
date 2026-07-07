@@ -6,6 +6,7 @@ import {
   Wrench,
   Microscope,
   Mail,
+  MessageCircle,
 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
@@ -134,6 +135,13 @@ export default function AboutPage() {
               GitHub
             </a>
           )}
+          <a
+            href="tencent://message/?uin=3178144936"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-sm transition-all"
+          >
+            <MessageCircle size={18} />
+            QQ: 3178144936
+          </a>
           {SITE_CONFIG.social.email && (
             <a
               href={`mailto:${SITE_CONFIG.social.email}`}
