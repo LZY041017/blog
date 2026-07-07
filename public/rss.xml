@@ -6,7 +6,7 @@
     <link>https://lzy041017.github.io/blog</link>
     <atom:link href="https://lzy041017.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Jul 2026 11:13:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 11:17:14 GMT</lastBuildDate>
     
     <item>
       <title><![CDATA[博客美化指南：组件、动效与个性化定制]]></title>
@@ -38,6 +38,16 @@
       <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
       <category>技术</category>
       <category>教程</category>
+    </item>
+    <item>
+      <title><![CDATA[栖霞山观景小记]]></title>
+      <description><![CDATA[深秋登栖霞，枫叶虽迟，却在山顶望见长江奔流不息——那些盘踞心头的迷茫，被货船坚定的航迹悄然带走。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/qixia-mountain</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/qixia-mountain</guid>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
+      <category>随想</category>
+      <category>生活</category>
+      <category>游记</category>
     </item>
     <item>
       <title><![CDATA[夏夜随想]]></title>
