@@ -91,7 +91,7 @@ export default function AboutPage() {
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className={`rounded-xl border border-gray-200 dark:border-gray-800 p-6 ${cat.bg} transition-colors`}
+              className={`rounded-xl border border-gray-200/80 dark:border-gray-800/80 p-6 ${cat.bg} hover:shadow-md hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/20 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20`}
             >
               <cat.icon size={28} className={`mb-3 ${cat.color}`} />
               <h3 className="font-semibold text-gray-900 dark:text-white mb-3">

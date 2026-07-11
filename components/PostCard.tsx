@@ -14,7 +14,7 @@ export default function PostCard({ post }: PostCardProps) {
   const readingTime = post.content ? getReadingTime(post.content) : null;
 
   return (
-    <article className="group border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-md transition-all duration-200 bg-white dark:bg-gray-900">
+    <article className="group border border-gray-200/80 dark:border-gray-800/80 rounded-xl p-6 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-lg hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20">
       {post.cover && (
         <Link href={`/posts/${post.slug}`} className="block -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-xl">
           <img

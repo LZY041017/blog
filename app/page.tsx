@@ -8,11 +8,27 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
       {/* Hero */}
-      <section className="mb-16">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
+      <section className="relative mb-16">
+        {/* Subtle decorative glow behind hero */}
+        <div
+          className="absolute -top-20 -left-20 w-64 h-64 rounded-full opacity-[0.07] blur-3xl pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute -top-10 right-0 w-48 h-48 rounded-full opacity-[0.05] blur-3xl pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, #8b5cf6 0%, transparent 70%)",
+          }}
+        />
+
+        <h1 className="relative text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
           {SITE_CONFIG.title}
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+        <p className="relative text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
           {SITE_CONFIG.description}
         </p>
       </section>
