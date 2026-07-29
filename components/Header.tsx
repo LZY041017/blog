@@ -51,10 +51,10 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-colors after:absolute after:bottom-1 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-current after:transition-opacity ${
                   isActive(item.href)
-                    ? "text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-950"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800"
+                    ? "text-primary-600 bg-primary-50 after:opacity-100 dark:text-primary-400 dark:bg-primary-950"
+                    : "text-gray-600 after:opacity-0 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800"
                 }`}
               >
                 {item.label}

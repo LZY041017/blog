@@ -14,7 +14,7 @@ export default function PostCard({ post }: PostCardProps) {
   const readingTime = post.content ? getReadingTime(post.content) : null;
 
   return (
-    <article className="group border border-gray-200/80 dark:border-gray-800/80 rounded-xl p-6 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-lg hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20">
+    <article className="group flex h-full flex-col border border-gray-200/80 dark:border-gray-800/80 rounded-2xl p-6 hover:-translate-y-1 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20">
       {post.cover && (
         <Link href={`/posts/${post.slug}`} className="block -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-xl">
           <img
@@ -25,7 +25,7 @@ export default function PostCard({ post }: PostCardProps) {
         </Link>
       )}
 
-      <div className="space-y-3">
+      <div className="flex h-full flex-col space-y-3">
         {/* Tags */}
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
@@ -53,7 +53,7 @@ export default function PostCard({ post }: PostCardProps) {
         )}
 
         {/* Meta */}
-        <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
+        <div className="flex items-center gap-4 border-t border-gray-100 pt-3 text-xs text-gray-500 dark:border-gray-800/70 dark:text-gray-500">
           {post.date && (
             <span className="flex items-center gap-1">
               <Calendar size={12} />
@@ -71,7 +71,7 @@ export default function PostCard({ post }: PostCardProps) {
         {/* Read more */}
         <Link
           href={`/posts/${post.slug}`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+          className="mt-auto inline-flex items-center gap-1 pt-1 text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
         >
           阅读全文
           <ChevronRight size={14} />
