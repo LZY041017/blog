@@ -6,8 +6,19 @@
     <link>https://lzy041017.github.io/blog</link>
     <atom:link href="https://lzy041017.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Jul 2026 11:23:26 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 11:11:19 GMT</lastBuildDate>
     
+    <item>
+      <title><![CDATA[从零实现 AI 芯片最小单元：int8 MAC 的 SystemVerilog 设计与验证]]></title>
+      <description><![CDATA[用一个可综合、可自检的 int8 MAC 乘加单元，认识时钟、复位、有符号位宽和 testbench。]]></description>
+      <link>https://lzy041017.github.io/blog/posts/int8-mac-systemverilog</link>
+      <guid isPermaLink="true">https://lzy041017.github.io/blog/posts/int8-mac-systemverilog</guid>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+      <category>SystemVerilog</category>
+      <category>AI芯片</category>
+      <category>硬件设计</category>
+      <category>仿真验证</category>
+    </item>
     <item>
       <title><![CDATA[博客美化指南：组件、动效与个性化定制]]></title>
       <description><![CDATA[从主题配色到动画效果，手把手教你如何让博客更好看、更有趣。基于本博客的实际代码结构，每个技巧都能立刻上手。]]></description>

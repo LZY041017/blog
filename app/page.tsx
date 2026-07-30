@@ -27,7 +27,7 @@ export default function HomePage() {
 
         <p className="relative mb-4 flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-primary-600 uppercase dark:text-primary-400">
           <span className="h-px w-8 bg-current opacity-60" />
-          Personal notes
+          个人笔记
         </p>
         <h1 className="relative text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
           {SITE_CONFIG.title}
@@ -37,7 +37,7 @@ export default function HomePage() {
         </p>
         <div className="relative mt-7 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-500">
           <span className="inline-flex h-2 w-2 rounded-full bg-primary-500 shadow-[0_0_0_4px_rgba(59,130,246,0.12)]" />
-          {posts.length} posts in the collection
+          已收录 {posts.length} 篇文章
         </div>
       </section>
 
@@ -46,7 +46,7 @@ export default function HomePage() {
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="mb-2 text-xs font-semibold tracking-[0.16em] text-gray-400 uppercase dark:text-gray-600">
-              Recent writing
+              最近更新
             </p>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               {String.fromCodePoint(0x6700, 0x65b0, 0x6587, 0x7ae0)}
