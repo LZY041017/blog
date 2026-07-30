@@ -30,7 +30,7 @@ export default function Footer() {
               </a>
             )}
             <a
-              href="/rss.xml"
+              href={`${SITE_CONFIG.url}/rss.xml`}
               className="text-sm text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
             >
               RSS
