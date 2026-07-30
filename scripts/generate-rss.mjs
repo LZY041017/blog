@@ -14,6 +14,17 @@ const SITE_CONFIG = {
   url: "https://lzy041017.github.io/blog",
 };
 
+const STATIC_PATHS = ["", "/posts", "/tech", "/thoughts", "/about"];
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function getAllPosts() {
   if (!fs.existsSync(postsDir)) return [];
 
@@ -69,4 +80,34 @@ function generateRSS() {
   console.log("✅ RSS feed generated: public/rss.xml");
 }
 
+function generateSitemap() {
+  const posts = getAllPosts();
+  const tags = [...new Set(posts.flatMap((post) => post.tags))].sort();
+  const urls = [
+    ...STATIC_PATHS.map((pathName) => ({ loc: `${SITE_CONFIG.url}${pathName}` })),
+    ...posts.map((post) => ({
+      loc: `${SITE_CONFIG.url}/posts/${post.slug}`,
+      lastmod: post.date?.toISOString().slice(0, 10),
+    })),
+    ...tags.map((tag) => ({
+      loc: `${SITE_CONFIG.url}/tags/${encodeURIComponent(tag)}`,
+    })),
+  ];
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls
+  .map(
+    ({ loc, lastmod }) => `  <url>
+    <loc>${escapeXml(loc)}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ""}
+  </url>`
+  )
+  .join("\n")}
+</urlset>`;
+
+  fs.writeFileSync(path.join(publicDir, "sitemap.xml"), sitemap, "utf8");
+  console.log("✅ Sitemap generated: public/sitemap.xml");
+}
+
 generateRSS();
+generateSitemap();

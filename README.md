@@ -18,8 +18,8 @@ npm.cmd run dev
 | 命令 | 用途 |
 | --- | --- |
 | `npm.cmd run dev` | 启动本地开发服务器 |
-| `npm.cmd run build` | 生成 RSS 并进行生产构建 |
-| `npm.cmd run rss` | 仅重新生成 `public/rss.xml` |
+| `npm.cmd run build` | 生成 RSS、sitemap 并进行生产构建 |
+| `npm.cmd run rss` | 重新生成 `public/rss.xml` 与 `public/sitemap.xml` |
 | `npm.cmd run start` | 本地运行生产构建结果 |
 
 ## 目录约定
@@ -64,4 +64,12 @@ author: "Lu Zhiyong"
 编辑文章或代码 → npm.cmd run build → git commit → git push origin main
 ```
 
-`.github/workflows/deploy.yml` 会在推送到 `main` 后执行 `npm ci`、`npm run build`，并部署 `out/` 到 GitHub Pages。构建会更新 `public/rss.xml`；若新增或修改了文章，应一并提交该文件。
+`.github/workflows/deploy.yml` 会在推送到 `main` 后执行 `npm ci`、`npm run build`，并部署 `out/` 到 GitHub Pages。构建会更新 `public/rss.xml` 和 `public/sitemap.xml`；若新增或修改了文章，应一并提交这两个文件。
+
+## 搜索收录
+
+- Sitemap：`https://lzy041017.github.io/blog/sitemap.xml`
+- RSS：`https://lzy041017.github.io/blog/rss.xml`
+- Google Search Console 验证文件：`https://lzy041017.github.io/blog/google3f0c00c5f2956f42.html`
+
+部署完成后，在 Google Search Console 提交 sitemap，并用“网址检查”请求抓取首页和新文章。

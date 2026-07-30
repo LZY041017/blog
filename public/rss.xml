@@ -6,7 +6,7 @@
     <link>https://lzy041017.github.io/blog</link>
     <atom:link href="https://lzy041017.github.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 30 Jul 2026 11:11:19 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 11:28:56 GMT</lastBuildDate>
     
     <item>
       <title><![CDATA[从零实现 AI 芯片最小单元：int8 MAC 的 SystemVerilog 设计与验证]]></title>
