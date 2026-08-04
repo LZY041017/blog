@@ -1,5 +1,6 @@
 import { SITE_CONFIG } from "@/lib/constants";
 import { getAllPosts } from "@/lib/posts";
+import FeaturedProject from "@/components/FeaturedProject";
 import PostCard from "@/components/PostCard";
 
 export default function HomePage() {
@@ -40,6 +41,8 @@ export default function HomePage() {
           已收录 {posts.length} 篇文章
         </div>
       </section>
+
+      <FeaturedProject />
 
       {/* Posts */}
       <section>

@@ -99,6 +99,59 @@ body {
   @apply outline-2 outline-offset-2 outline-primary-500 rounded;
 }
 
+/* Flagship project display */
+.project-showcase {
+  isolation: isolate;
+}
+
+.project-showcase::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(115deg, transparent 0 61%, rgba(239, 68, 68, 0.08) 61% 61.35%, transparent 61.35%),
+    radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.055), transparent 24%);
+}
+
+.project-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.11'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.project-title-accent {
+  text-shadow: 0 0 40px rgba(248, 113, 113, 0.18);
+}
+
+.project-live-dot {
+  animation: project-pulse 2.2s ease-out infinite;
+}
+
+.project-progress {
+  animation: project-progress-glow 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes project-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 7px rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes project-progress-glow {
+  from {
+    filter: saturate(0.9);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.18);
+  }
+  to {
+    filter: saturate(1.2);
+    box-shadow: 0 0 18px rgba(239, 68, 68, 0.38);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
