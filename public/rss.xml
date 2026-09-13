@@ -6,8 +6,38 @@
     <link>https://zhiyonglu.top</link>
     <atom:link href="https://zhiyonglu.top/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Sep 2026 04:20:24 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 04:38:20 GMT</lastBuildDate>
     
+    <item>
+      <title><![CDATA[时光涂涂：把一周日程画出来]]></title>
+      <description><![CDATA[一个本地 Windows 周计划工具，用可视化时间块整理课程、任务和临时安排。]]></description>
+      <link>https://zhiyonglu.top/posts/shiguang-timepaint</link>
+      <guid isPermaLink="true">https://zhiyonglu.top/posts/shiguang-timepaint</guid>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category>工具</category>
+      <category>日程</category>
+      <category>效率</category>
+    </item>
+    <item>
+      <title><![CDATA[拾念：让记忆从收藏变成主动回忆]]></title>
+      <description><![CDATA[一款本地 Windows 记忆辅助工作台，用引句、标签、检索和抽查帮助重新想起真正重要的内容。]]></description>
+      <link>https://zhiyonglu.top/posts/shinian-memory-aid</link>
+      <guid isPermaLink="true">https://zhiyonglu.top/posts/shinian-memory-aid</guid>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category>工具</category>
+      <category>记忆</category>
+      <category>学习</category>
+    </item>
+    <item>
+      <title><![CDATA[时屿：把值得记住的瞬间，放进时间里]]></title>
+      <description><![CDATA[一款本地 Windows 时间管理与计时工具，用正计时、倒计时和时间轨道看见正在发生的事。]]></description>
+      <link>https://zhiyonglu.top/posts/shiyu-time-management</link>
+      <guid isPermaLink="true">https://zhiyonglu.top/posts/shiyu-time-management</guid>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category>工具</category>
+      <category>时间管理</category>
+      <category>Windows</category>
+    </item>
     <item>
       <title><![CDATA[从零实现 AI 芯片最小单元：int8 MAC 的 SystemVerilog 设计与验证]]></title>
       <description><![CDATA[用一个可综合、可自检的 int8 MAC 乘加单元，认识时钟、复位、有符号位宽和 testbench。]]></description>
