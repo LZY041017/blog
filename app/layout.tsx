@@ -42,6 +42,8 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
+        <meta name="baidu-site-verification" content="codeva-HImR0v5Dca" />
+
         {/* Prevent FOUC for dark mode */}
         <script
           dangerouslySetInnerHTML={{
