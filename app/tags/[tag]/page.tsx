@@ -8,7 +8,9 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return getAllTags().map((tag) => ({ tag: encodeURIComponent(tag.name) }));
+  // Return the raw segment. Next.js performs URL encoding when it writes the
+  // static export; encoding it here makes non-ASCII tags get encoded twice.
+  return getAllTags().map((tag) => ({ tag: tag.name }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

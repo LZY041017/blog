@@ -2,7 +2,7 @@
 title: "从零实现 AI 芯片最小单元：int8 MAC 的 SystemVerilog 设计与验证"
 date: "2026-07-30"
 description: "用一个可综合、可自检的 int8 MAC 乘加单元，认识时钟、复位、有符号位宽和 testbench。"
-tags: ["SystemVerilog", "AI芯片", "硬件设计", "仿真验证"]
+tags: ["技术", "SystemVerilog", "AI芯片", "硬件设计", "仿真验证"]
 author: "Lu Zhiyong"
 ---
 

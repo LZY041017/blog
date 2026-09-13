@@ -14,9 +14,14 @@ export default function PostCard({ post }: PostCardProps) {
   const readingTime = post.content ? getReadingTime(post.content) : null;
 
   return (
-    <article className="group flex h-full flex-col border border-gray-200/80 dark:border-gray-800/80 rounded-2xl p-6 hover:-translate-y-1 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20">
+    <article className="group relative flex h-full flex-col border border-gray-200/80 dark:border-gray-800/80 rounded-2xl p-6 hover:-translate-y-1 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20">
+      <Link
+        href={`/posts/${post.slug}`}
+        aria-label={`阅读文章：${post.title}`}
+        className="absolute inset-0 z-0 rounded-2xl"
+      />
       {post.cover && (
-        <Link href={`/posts/${post.slug}`} className="block -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-xl">
+        <Link href={`/posts/${post.slug}`} className="relative z-20 block -mx-6 -mt-6 mb-5 overflow-hidden rounded-t-xl">
           <img
             src={post.cover}
             alt={post.title}
@@ -25,10 +30,10 @@ export default function PostCard({ post }: PostCardProps) {
         </Link>
       )}
 
-      <div className="flex h-full flex-col space-y-3">
+      <div className="relative z-10 flex h-full flex-col space-y-3 pointer-events-none">
         {/* Tags */}
         {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 pointer-events-auto">
             {post.tags.map((tag) => (
               <TagBadge key={tag} tag={tag} />
             ))}
@@ -39,7 +44,7 @@ export default function PostCard({ post }: PostCardProps) {
         <h2 className="text-xl font-bold leading-tight">
           <Link
             href={`/posts/${post.slug}`}
-            className="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            className="pointer-events-auto text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
             {post.title}
           </Link>
@@ -71,7 +76,7 @@ export default function PostCard({ post }: PostCardProps) {
         {/* Read more */}
         <Link
           href={`/posts/${post.slug}`}
-          className="mt-auto inline-flex items-center gap-1 pt-1 text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+          className="pointer-events-auto mt-auto inline-flex items-center gap-1 pt-1 text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
         >
           阅读全文
           <ChevronRight size={14} />
