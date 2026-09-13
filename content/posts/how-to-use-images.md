@@ -16,7 +16,7 @@ author: "Lu Zhiyong"
 2. 在 Markdown 文章中这样引用：
 
 ```markdown
-![图片描述](/blog/images/photo.jpg)
+![图片描述](/images/photo.jpg)
 ```
 
 3. 提交并推送，图片随博客一起部署

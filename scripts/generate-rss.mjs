@@ -11,7 +11,7 @@ const publicDir = path.join(rootDir, "public");
 const SITE_CONFIG = {
   title: "Lu_Zhiyong's Blog",
   description: "记录思考，分享技术，书写生活。",
-  url: "https://lzy041017.github.io/blog",
+  url: "https://zhiyonglu.top",
 };
 
 const STATIC_PATHS = ["", "/posts", "/tech", "/thoughts", "/about"];
