@@ -2,9 +2,5 @@ name = "zhiyonglu-steam-api"
 main = "src/index.ts"
 compatibility_date = "2026-09-14"
 
-[[kv_namespaces]]
-binding = "STEAM_CACHE"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-
 [vars]
 STEAM_ID = "REPLACE_WITH_STEAM_ID"

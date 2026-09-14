@@ -1,16 +1,9 @@
 export interface Env {
   STEAM_API_KEY: string;
   STEAM_ID: string;
-  STEAM_CACHE: KVNamespace;
 }
 
-interface KVNamespace {
-  get<T = unknown>(key: string, type: "json"): Promise<T | null>;
-  put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
-}
-
-const CACHE_KEY = "steam-snapshot-v1";
-const CACHE_TTL_SECONDS = 1800;
+const CACHE_KEY = new Request("https://cache.internal/steam-snapshot-v1");
 
 function json(data: unknown, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -24,11 +17,11 @@ function json(data: unknown, status = 200) {
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
 
-    const cached = await env.STEAM_CACHE.get(CACHE_KEY, "json");
-    if (cached) return json(cached);
+    const cached = await caches.default.match(CACHE_KEY);
+    if (cached) return cached;
 
     const base = "https://api.steampowered.com";
     const [summaryResponse, recentResponse] = await Promise.all([
@@ -52,7 +45,8 @@ export default {
       })),
       lastSyncedAt: new Date().toISOString(),
     };
-    await env.STEAM_CACHE.put(CACHE_KEY, JSON.stringify(snapshot), { expirationTtl: CACHE_TTL_SECONDS });
-    return json(snapshot);
+    const response = json(snapshot);
+    ctx.waitUntil(caches.default.put(CACHE_KEY, response.clone()));
+    return response;
   },
 };
