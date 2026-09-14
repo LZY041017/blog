@@ -7,6 +7,7 @@ import {
   Cpu,
   FlaskConical,
   Gauge,
+  Music2,
 } from "lucide-react";
 
 const projectLayers = [
@@ -14,6 +15,7 @@ const projectLayers = [
   { label: "SIM", detail: "周期级模拟器", icon: FlaskConical },
   { label: "RTL / HLS", detail: "PE 阵列与存储", icon: Cpu },
   { label: "SYSTEM", detail: "Attention 与 KV Cache", icon: Boxes },
+  { label: "CREATIVE", detail: "术力口 · FL Studio 26 + VOCALOID6", icon: Music2 },
 ];
 
 const milestones = [
@@ -113,7 +115,7 @@ export default function FeaturedProject() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-5">
           {projectLayers.map(({ label, detail, icon: Icon }, index) => (
             <div
               key={label}

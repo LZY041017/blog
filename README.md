@@ -2,6 +2,12 @@
 
 基于 Next.js、Tailwind CSS 与 GitHub Pages 构建的静态个人博客。文章由 Markdown 管理，推送到 `main` 后会自动构建并发布。
 
+## Steam 同步 API
+
+博客新增了 `/steam/` 页面和独立的 Cloudflare Workers API。API 实现位于 `workers/steam-api/`，负责从 Steam 官方接口读取公开资料、缓存最近游玩数据，并保护 Steam API Key 不进入前端。
+
+部署 Worker 后，将其公开地址配置为 GitHub Pages 构建变量 `NEXT_PUBLIC_STEAM_API_URL`；未配置时，Steam 页面会显示“正在配置中”，不会影响整站构建。详细步骤见 `workers/steam-api/README.md`。
+
 在线访问：[lzy041017.github.io/blog](https://lzy041017.github.io/blog/)
 
 ## 本地开发

@@ -56,6 +56,7 @@ const portfolio = [
   { type: "DESKTOP TOOL", title: "时光涂涂", description: "本地 Windows 周计划工具，把课程、学习、实验和临时安排画成时间块。", href: "/posts/shiguang-timepaint", external: false },
   { type: "DESKTOP TOOL", title: "拾念", description: "本地 Windows 记忆辅助工作台，用引句、标签、检索和抽查帮助主动回忆。", href: "/posts/shinian-memory-aid", external: false },
   { type: "DESKTOP TOOL", title: "时屿", description: "本地 Windows 时间记录工具，用正计时、倒计时和时间轨道看见正在发生的事。", href: "/posts/shiyu-time-management", external: false },
+  { type: "CREATIVE LAB · COMING SOON", title: "术力口创作专区", description: "待建设的音乐与声库创作空间，当前工具栈为 FL Studio 26 + VOCALOID6，记录编曲、调声与作品迭代。", href: "#creative-lab", external: false },
 ];
 
 function ProjectLink({ href, label, external = false }: { href: string; label: string; external?: boolean }) {
@@ -117,7 +118,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-20 rounded-3xl border border-gray-200 p-7 dark:border-gray-800 sm:p-9"><div className="flex flex-wrap items-center justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-primary-600 dark:text-primary-400">Open to collaboration</p><h2 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">从可验证的小项目开始，持续把问题做深。</h2></div><ProjectLink href={SITE_CONFIG.social.github} label="访问 GitHub" external /></div></section>
+      <section id="creative-lab" className="mt-20 rounded-3xl border border-dashed border-primary-300 bg-primary-50/50 p-7 dark:border-primary-800 dark:bg-primary-950/20 sm:p-9"><div className="flex flex-wrap items-center justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-primary-600 dark:text-primary-400">Creative lab · coming soon</p><h2 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">术力口创作专区</h2><p className="mt-3 max-w-2xl leading-7 text-gray-600 dark:text-gray-400">这里将收录编曲、调声和原创作品。目前使用 FL Studio 26 + VOCALOID6，专区正在建设中。</p></div><span className="rounded-full border border-primary-200 bg-white px-4 py-2 text-sm font-semibold text-primary-700 dark:border-primary-900 dark:bg-gray-950 dark:text-primary-300">待建设</span></div></section>
+      <section className="mt-8 rounded-3xl border border-gray-200 p-7 dark:border-gray-800 sm:p-9"><div className="flex flex-wrap items-center justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-primary-600 dark:text-primary-400">Open to collaboration</p><h2 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">从可验证的小项目开始，持续把问题做深。</h2></div><ProjectLink href={SITE_CONFIG.social.github} label="访问 GitHub" external /></div></section>
     </div>
   );
 }

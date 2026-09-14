@@ -13,6 +13,7 @@ export const SITE_CONFIG = {
     { label: "首页", href: "/" },
     { label: "技术", href: "/tech" },
     { label: "随想", href: "/thoughts" },
+    { label: "Steam", href: "/steam" },
     { label: "自我", href: "/about" },
   ],
   postsPerPage: 10,
