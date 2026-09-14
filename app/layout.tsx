@@ -63,10 +63,10 @@ export default function RootLayout({
       </head>
       <body className="flex flex-col min-h-screen">
         <div className="site-video-background" aria-hidden="true">
-          <video className="site-video-desktop" autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.png">
+          <video className="site-video-desktop" autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.webp">
             <source src="/assets/video/main.mp4" type="video/mp4" />
           </video>
-          <video className="site-video-mobile" autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.png">
+          <video className="site-video-mobile" autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.webp">
             <source src="/assets/video/mobile-main.mp4" type="video/mp4" />
           </video>
           <div className="site-video-overlay" />

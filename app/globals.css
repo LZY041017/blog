@@ -27,7 +27,7 @@ body {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
-  background: #061326 url("/assets/visual/p3-inspired-city-night-hero.png") center / cover no-repeat;
+  background: #061326 url("/assets/visual/p3-inspired-city-night-hero.webp") center / cover no-repeat;
 }
 
 body > header,
