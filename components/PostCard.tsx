@@ -14,7 +14,7 @@ export default function PostCard({ post }: PostCardProps) {
   const readingTime = post.content ? getReadingTime(post.content) : null;
 
   return (
-    <article className="group relative flex h-full flex-col border border-gray-200/80 dark:border-gray-800/80 rounded-2xl p-6 hover:-translate-y-1 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20">
+    <article className="group relative flex h-full flex-col border border-gray-200/80 dark:border-gray-800/80 rounded-2xl p-6 hover:-translate-y-1 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 bg-gradient-to-br from-white/78 via-white/72 to-blue-50/42 backdrop-blur-md dark:from-gray-900/78 dark:via-gray-900/72 dark:to-blue-950/35">
       <Link
         href={`/posts/${post.slug}`}
         aria-label={`阅读文章：${post.title}`}
