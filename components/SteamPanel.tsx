@@ -18,7 +18,7 @@ type SteamSnapshot = {
   lastSyncedAt?: string;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_STEAM_API_URL || "";
+const apiUrl = process.env.NEXT_PUBLIC_STEAM_API_URL || "https://zhiyonglu-steam-api.zhiyonglu114.workers.dev/";
 
 export default function SteamPanel() {
   const [snapshot, setSnapshot] = useState<SteamSnapshot | null>(null);
