@@ -45,6 +45,20 @@ body > footer {
   transform: scale(1.015);
 }
 
+.site-video-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .site-video-desktop {
+    display: none;
+  }
+
+  .site-video-mobile {
+    display: block;
+  }
+}
+
 .site-video-overlay {
   position: absolute;
   inset: 0;
