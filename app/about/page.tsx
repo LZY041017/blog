@@ -32,7 +32,7 @@ const directions = [
     title: "IC 制造工艺优化",
     eyebrow: "COMPUTATIONAL LITHOGRAPHY",
     icon: Microscope,
-    description: "正在尝试复现史老师关于计算光刻的论文，从光学传播、可微建模和优化闭环理解工艺与版图之间的关系。",
+    description: "正在尝试复现一篇计算光刻相关论文，从光学传播、可微建模和优化闭环理解工艺与版图之间的关系。",
     items: ["傅里叶光学与角谱传播", "计算光刻 / 光学逆设计", "梯度检查、版图优化与可复现实验"],
     href: "https://github.com/LZY041017",
     linkLabel: "查看研究方向",
@@ -43,7 +43,7 @@ const directions = [
     eyebrow: "EMBEDDED / FPGA / NATIONAL INSTRUMENTS",
     icon: Boxes,
     description: "把算法放进真实的软硬件边界：关注数据通路、接口、时序和可验证的工程结果。",
-    items: ["National Instruments（NI）myRIO 与 LabVIEW 工程实践", "RT / FPGA 分工与 DMA FIFO 数据通路", "摄像头、灰度、高斯滤波与 Canny 边缘处理"],
+    items: ["东南大学暑期学校中的 National Instruments（NI）myRIO 与 LabVIEW 实践", "RT / FPGA 分工与 DMA FIFO 数据通路", "摄像头、灰度、高斯滤波与 Canny 边缘处理"],
     href: "https://github.com/LZY041017",
     linkLabel: "查看 GitHub 主页",
   },
@@ -51,8 +51,8 @@ const directions = [
 
 const portfolio = [
   { type: "IC DESIGN", title: "int8 MAC / SystemVerilog", description: "从一个可综合、可自检的 MAC 单元出发，建立 AI 芯片 RTL 设计与验证闭环。", href: "/posts/int8-mac-systemverilog", external: false },
-  { type: "RESEARCH IN PROGRESS", title: "计算光刻复现尝试", description: "围绕史老师论文搭建计算光刻学习与复现实验路径，逐步验证传播模型和优化过程。", href: "https://github.com/LZY041017", external: true },
-  { type: "EMBEDDED / FPGA", title: "National Instruments（NI）myRIO 图像处理", description: "National Instruments（NI）实习线索延伸出的 myRIO、LabVIEW、DMA FIFO 与 FPGA 图像处理工程实践。", href: "https://github.com/LZY041017", external: true },
+  { type: "RESEARCH IN PROGRESS", title: "计算光刻复现尝试", description: "正在围绕一篇计算光刻相关论文搭建学习与复现实验路径，逐步验证传播模型和优化过程。", href: "https://github.com/LZY041017", external: true },
+  { type: "EMBEDDED / FPGA", title: "National Instruments（NI）myRIO 图像处理", description: "东南大学暑期学校中的 National Instruments（NI）myRIO、LabVIEW、DMA FIFO 与 FPGA 图像处理实践。", href: "https://github.com/LZY041017", external: true },
   { type: "DESKTOP TOOL", title: "时光涂涂", description: "本地 Windows 周计划工具，把课程、学习、实验和临时安排画成时间块。", href: "/posts/shiguang-timepaint", external: false },
   { type: "DESKTOP TOOL", title: "拾念", description: "本地 Windows 记忆辅助工作台，用引句、标签、检索和抽查帮助主动回忆。", href: "/posts/shinian-memory-aid", external: false },
   { type: "DESKTOP TOOL", title: "时屿", description: "本地 Windows 时间记录工具，用正计时、倒计时和时间轨道看见正在发生的事。", href: "/posts/shiyu-time-management", external: false },
@@ -80,7 +80,7 @@ export default function AboutPage() {
           </div>
           <div className="grid gap-3 text-sm text-gray-600 dark:text-gray-300">
             <div className="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 dark:border-gray-800 dark:bg-gray-900/60"><GraduationCap className="text-primary-600 dark:text-primary-400" size={21} /><span>东南大学 · 电子科学与工程学院</span></div>
-            <div className="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 dark:border-gray-800 dark:bg-gray-900/60"><BriefcaseBusiness className="text-primary-600 dark:text-primary-400" size={21} /><span>National Instruments（NI）实习经历 · myRIO / LabVIEW / FPGA</span></div>
+            <div className="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 dark:border-gray-800 dark:bg-gray-900/60"><BriefcaseBusiness className="text-primary-600 dark:text-primary-400" size={21} /><span>National Instruments（NI）实践 · 东南大学暑期学校 · myRIO / LabVIEW / FPGA</span></div>
           </div>
         </div>
       </section>
@@ -88,11 +88,11 @@ export default function AboutPage() {
       <section className="mt-20 grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">Experience</p>
-          <h2 className="mt-3 text-3xl font-bold text-gray-950 dark:text-white">实习经历</h2>
+          <h2 className="mt-3 text-3xl font-bold text-gray-950 dark:text-white">实践经历</h2>
           <div className="mt-8 border-l-2 border-primary-200 pl-6 dark:border-primary-900">
-            <p className="text-sm font-semibold text-primary-600 dark:text-primary-400">National Instruments（NI）· 实习期间</p>
+            <p className="text-sm font-semibold text-primary-600 dark:text-primary-400">National Instruments（NI）· 东南大学暑期学校</p>
             <h3 className="mt-2 text-xl font-bold text-gray-900 dark:text-white">面向工程问题理解软硬件协同</h3>
-            <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">在 National Instruments（NI）相关实践中接触 LabVIEW、myRIO 与 FPGA 图像处理流程，围绕摄像头采集、灰度化、RT/FPGA 数据交换和边缘处理，理解实时系统中的模块边界、数据通路与验证方法。</p>
+            <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">在东南大学暑期学校的 National Instruments（NI）相关实践中接触 LabVIEW、myRIO 与 FPGA 图像处理流程，围绕摄像头采集、灰度化、RT/FPGA 数据交换和边缘处理，理解实时系统中的模块边界、数据通路与验证方法。</p>
           </div>
         </div>
         <div className="rounded-3xl border border-gray-200/80 bg-gray-50/58 p-7 backdrop-blur-md dark:border-gray-800/80 dark:bg-gray-900/42 sm:p-9">
