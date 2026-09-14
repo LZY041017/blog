@@ -3,7 +3,12 @@ export interface Env {
   STEAM_ID: string;
 }
 
+interface ExecutionContext {
+  waitUntil(promise: Promise<unknown>): void;
+}
+
 const CACHE_KEY = new Request("https://cache.internal/steam-snapshot-v1");
+const workerCache = (caches as unknown as { default: Cache }).default;
 
 function json(data: unknown, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -20,7 +25,7 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
 
-    const cached = await caches.default.match(CACHE_KEY);
+    const cached = await workerCache.match(CACHE_KEY);
     if (cached) return cached;
 
     const base = "https://api.steampowered.com";
@@ -46,7 +51,7 @@ export default {
       lastSyncedAt: new Date().toISOString(),
     };
     const response = json(snapshot);
-    ctx.waitUntil(caches.default.put(CACHE_KEY, response.clone()));
+    ctx.waitUntil(workerCache.put(CACHE_KEY, response.clone()));
     return response;
   },
 };

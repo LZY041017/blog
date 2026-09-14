@@ -56,7 +56,7 @@ const portfolio = [
   { type: "DESKTOP TOOL", title: "时光涂涂", description: "本地 Windows 周计划工具，把课程、学习、实验和临时安排画成时间块。", href: "/posts/shiguang-timepaint", external: false },
   { type: "DESKTOP TOOL", title: "拾念", description: "本地 Windows 记忆辅助工作台，用引句、标签、检索和抽查帮助主动回忆。", href: "/posts/shinian-memory-aid", external: false },
   { type: "DESKTOP TOOL", title: "时屿", description: "本地 Windows 时间记录工具，用正计时、倒计时和时间轨道看见正在发生的事。", href: "/posts/shiyu-time-management", external: false },
-  { type: "CREATIVE LAB · COMING SOON", title: "术力口创作专区", description: "待建设的音乐与声库创作空间，当前工具栈为 FL Studio 26 + VOCALOID6，记录编曲、调声与作品迭代。", href: "#creative-lab", external: false },
+  { type: "CREATIVE LAB · COMING SOON", title: "术力口创作专区", description: "待建设的音乐与声库创作空间，当前工具栈为 FL Studio 26 + VOCALOID6，记录编曲、调声与作品迭代。", href: "/creative", external: false },
 ];
 
 function ProjectLink({ href, label, external = false }: { href: string; label: string; external?: boolean }) {

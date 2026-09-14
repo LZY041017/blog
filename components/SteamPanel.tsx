@@ -41,7 +41,6 @@ export default function SteamPanel() {
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">Steam activity</p>
             <h1 className="mt-3 text-4xl font-bold text-gray-950 dark:text-white">游戏生活</h1>
-            <p className="mt-4 max-w-xl leading-7 text-gray-600 dark:text-gray-400">展示最近游玩与精选游戏。数据由独立的免费 API 定时同步，页面保留上一次成功缓存。</p>
           </div>
           <Gamepad2 className="text-primary-600 dark:text-primary-400" size={42} strokeWidth={1.5} />
         </div>
