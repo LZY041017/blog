@@ -70,7 +70,7 @@ function ProjectLink({ href, label, external = false }: { href: string; label: s
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
-      <section className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gradient-to-br from-white via-white to-blue-50/70 p-7 shadow-sm dark:border-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-blue-950/30 sm:p-12">
+      <section className="relative overflow-hidden rounded-[2rem] border border-gray-200/80 bg-gradient-to-br from-white/72 via-white/64 to-blue-50/55 p-7 shadow-sm backdrop-blur-xl dark:border-gray-800/80 dark:from-gray-950/72 dark:via-gray-950/64 dark:to-blue-950/35 sm:p-12">
         <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-primary-500/10 blur-3xl" />
         <div className="relative grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
             <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">在 National Instruments（NI）相关实践中接触 LabVIEW、myRIO 与 FPGA 图像处理流程，围绕摄像头采集、灰度化、RT/FPGA 数据交换和边缘处理，理解实时系统中的模块边界、数据通路与验证方法。</p>
           </div>
         </div>
-        <div className="rounded-3xl border border-gray-200 bg-gray-50/80 p-7 dark:border-gray-800 dark:bg-gray-900/50 sm:p-9">
+        <div className="rounded-3xl border border-gray-200/80 bg-gray-50/58 p-7 backdrop-blur-md dark:border-gray-800/80 dark:bg-gray-900/42 sm:p-9">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-gray-400">Engineering notes</p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {[["工具链", "LabVIEW / NI-RIO / myRIO"], ["数据通路", "RT → FPGA → RT / DMA FIFO"], ["图像链路", "Camera → Gray → Gaussian → Canny"], ["工程方法", "先拆边界，再做验证"]].map(([label, value]) => <div key={label}><p className="text-sm text-gray-500 dark:text-gray-500">{label}</p><p className="mt-1 font-semibold text-gray-900 dark:text-gray-100">{value}</p></div>)}
@@ -107,7 +107,7 @@ export default function AboutPage() {
       <section className="mt-20">
         <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">Three directions</p><h2 className="mt-3 text-3xl font-bold text-gray-950 dark:text-white">现在正在做什么</h2></div><p className="max-w-md text-sm leading-6 text-gray-500 dark:text-gray-400">不再罗列孤立技能，而是用具体问题、工程链路和可复现作品来描述能力边界。</p></div>
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
-          {directions.map((direction) => <article key={direction.number} className="group rounded-3xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-gray-800 dark:bg-gray-950 dark:hover:border-primary-800"><div className="flex items-start justify-between"><div className="rounded-2xl bg-gray-100 p-3 text-primary-600 dark:bg-gray-900 dark:text-primary-400"><direction.icon size={24} /></div><span className="font-mono text-sm text-gray-400">{direction.number}</span></div><p className="mt-8 text-[11px] font-bold tracking-[0.2em] text-gray-400">{direction.eyebrow}</p><h3 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">{direction.title}</h3><p className="mt-4 min-h-24 leading-7 text-gray-600 dark:text-gray-400">{direction.description}</p><ul className="mt-5 space-y-3 border-t border-gray-100 pt-5 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-300">{direction.items.map((item) => <li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" />{item}</li>)}</ul><div className="mt-7"><ProjectLink href={direction.href} label={direction.linkLabel} external={direction.href.startsWith("http")} /></div></article>)}
+          {directions.map((direction) => <article key={direction.number} className="group rounded-3xl border border-gray-200/80 bg-white/58 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-gray-800/80 dark:bg-gray-950/52 dark:hover:border-primary-800"><div className="flex items-start justify-between"><div className="rounded-2xl bg-gray-100/70 p-3 text-primary-600 dark:bg-gray-900/70 dark:text-primary-400"><direction.icon size={24} /></div><span className="font-mono text-sm text-gray-400">{direction.number}</span></div><p className="mt-8 text-[11px] font-bold tracking-[0.2em] text-gray-400">{direction.eyebrow}</p><h3 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">{direction.title}</h3><p className="mt-4 min-h-24 leading-7 text-gray-600 dark:text-gray-400">{direction.description}</p><ul className="mt-5 space-y-3 border-t border-gray-100 pt-5 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-300">{direction.items.map((item) => <li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" />{item}</li>)}</ul><div className="mt-7"><ProjectLink href={direction.href} label={direction.linkLabel} external={direction.href.startsWith("http")} /></div></article>)}
         </div>
       </section>
 
