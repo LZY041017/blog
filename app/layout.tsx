@@ -62,6 +62,12 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen">
+        <div className="site-video-background" aria-hidden="true">
+          <video autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.png">
+            <source src="/assets/video/main.mp4" type="video/mp4" />
+          </video>
+          <div className="site-video-overlay" />
+        </div>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

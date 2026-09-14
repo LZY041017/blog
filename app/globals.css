@@ -20,6 +20,43 @@ body {
   background-attachment: fixed;
 }
 
+.site-video-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #061326 url("/assets/visual/p3-inspired-city-night-hero.png") center / cover no-repeat;
+}
+
+body > header,
+body > main,
+body > footer {
+  position: relative;
+  z-index: 1;
+}
+
+.site-video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(1.5px) saturate(0.92);
+  transform: scale(1.015);
+}
+
+.site-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 12, 28, 0.44), rgba(4, 12, 28, 0.62));
+  backdrop-filter: blur(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-video-background video {
+    display: none;
+  }
+}
+
 .dark body {
   background-image:
     radial-gradient(circle, rgba(107, 114, 128, 0.18) 0.8px, transparent 0.8px),
