@@ -1,158 +1,123 @@
 import type { Metadata } from "next";
 import {
-  GraduationCap,
-  Code2,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Boxes,
   Cpu,
-  Wrench,
+  ExternalLink,
+  GitBranch,
+  GraduationCap,
   Microscope,
-  Mail,
-  MessageCircle,
 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "自我",
-  description: `关于 ${SITE_CONFIG.author} 的个人介绍`,
+  description: `Lu Zhiyong 的个人简历、研究方向与作品集`,
 };
 
-const skillCategories = [
+const directions = [
   {
-    title: "编程语言",
-    icon: Code2,
-    skills: ["Python", "Matlab", "C/C++", "HTML", "Java", "Verilog HDL"],
-    color: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-50 dark:bg-blue-950",
-  },
-  {
-    title: "技术方向",
+    number: "01",
+    title: "IC 设计与验证",
+    eyebrow: "DIGITAL IC / VERIFICATION",
     icon: Cpu,
-    skills: [
-      "嵌入式系统开发",
-      "FPGA 开发 (PL / PS / AI Engine)",
-      "COMSOL 柔性有机晶体管仿真",
-    ],
-    color: "text-emerald-600 dark:text-emerald-400",
-    bg: "bg-emerald-50 dark:bg-emerald-950",
+    description: "从可读、可测的最小硬件单元开始，持续练习 RTL 建模、testbench、仿真与阵列化思考。",
+    items: ["int8 MAC 乘加单元", "SystemVerilog RTL 与 testbench", "时钟、复位、有符号位宽与仿真波形"],
+    href: "/posts/int8-mac-systemverilog",
+    linkLabel: "查看 MAC 项目",
   },
   {
-    title: "研究领域",
+    number: "02",
+    title: "IC 制造工艺优化",
+    eyebrow: "COMPUTATIONAL LITHOGRAPHY",
     icon: Microscope,
-    skills: ["电子器件设计与制造", "FPGA 编程"],
-    color: "text-purple-600 dark:text-purple-400",
-    bg: "bg-purple-50 dark:bg-purple-950",
+    description: "正在尝试复现史老师关于计算光刻的论文，从光学传播、可微建模和优化闭环理解工艺与版图之间的关系。",
+    items: ["傅里叶光学与角谱传播", "计算光刻 / 光学逆设计", "梯度检查、版图优化与可复现实验"],
+    href: "https://github.com/LZY041017",
+    linkLabel: "查看研究方向",
+  },
+  {
+    number: "03",
+    title: "嵌入式与可编程逻辑",
+    eyebrow: "EMBEDDED / FPGA / NI",
+    icon: Boxes,
+    description: "把算法放进真实的软硬件边界：关注数据通路、接口、时序和可验证的工程结果。",
+    items: ["NI myRIO 与 LabVIEW 工程实践", "RT / FPGA 分工与 DMA FIFO 数据通路", "摄像头、灰度、高斯滤波与 Canny 边缘处理"],
+    href: "https://github.com/LZY041017",
+    linkLabel: "查看 GitHub 主页",
   },
 ];
 
+const portfolio = [
+  { type: "IC DESIGN", title: "int8 MAC / SystemVerilog", description: "从一个可综合、可自检的 MAC 单元出发，建立 AI 芯片 RTL 设计与验证闭环。", href: "/posts/int8-mac-systemverilog", external: false },
+  { type: "RESEARCH IN PROGRESS", title: "计算光刻复现尝试", description: "围绕史老师论文搭建计算光刻学习与复现实验路径，逐步验证传播模型和优化过程。", href: "https://github.com/LZY041017", external: true },
+  { type: "EMBEDDED / FPGA", title: "NI myRIO 图像处理", description: "NI 实习线索延伸出的 myRIO、LabVIEW、DMA FIFO 与 FPGA 图像处理工程实践。", href: "https://github.com/LZY041017", external: true },
+  { type: "DESKTOP TOOL", title: "时光涂涂", description: "本地 Windows 周计划工具，把课程、学习、实验和临时安排画成时间块。", href: "/posts/shiguang-timepaint", external: false },
+  { type: "DESKTOP TOOL", title: "拾念", description: "本地 Windows 记忆辅助工作台，用引句、标签、检索和抽查帮助主动回忆。", href: "/posts/shinian-memory-aid", external: false },
+  { type: "DESKTOP TOOL", title: "时屿", description: "本地 Windows 时间记录工具，用正计时、倒计时和时间轨道看见正在发生的事。", href: "/posts/shiyu-time-management", external: false },
+];
+
+function ProjectLink({ href, label, external = false }: { href: string; label: string; external?: boolean }) {
+  return (
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+      {label}{external ? <ExternalLink size={15} /> : <ArrowUpRight size={16} />}
+    </a>
+  );
+}
+
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
-      {/* Hero */}
-      <section className="mb-16">
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">
-          Hello, I&apos;m{" "}
-          <span className="text-primary-600 dark:text-primary-400">
-            Zhiyong Lu
-          </span>
-        </h1>
-        <div className="flex flex-wrap items-center gap-3 text-gray-600 dark:text-gray-400">
-          <span className="inline-flex items-center gap-1.5">
-            <GraduationCap size={18} />
-            东南大学
-          </span>
-          <span className="text-gray-300 dark:text-gray-700">·</span>
-          <span>电子科学与工程学院</span>
-          <span className="text-gray-300 dark:text-gray-700">·</span>
-          <span>本科在读</span>
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+      <section className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-gradient-to-br from-white via-white to-blue-50/70 p-7 shadow-sm dark:border-gray-800 dark:from-gray-950 dark:via-gray-950 dark:to-blue-950/30 sm:p-12">
+        <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-primary-500/10 blur-3xl" />
+        <div className="relative grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+          <div>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-primary-600 dark:text-primary-400">Personal resume / portfolio</p>
+            <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">把器件、算法与系统，<span className="block text-primary-600 dark:text-primary-400">放进同一条学习路径。</span></h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">我是 Lu Zhiyong，东南大学电子科学与工程学院本科在读。当前关注 IC 设计与验证、计算光刻，以及嵌入式与可编程逻辑之间的连接。</p>
+          </div>
+          <div className="grid gap-3 text-sm text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 dark:border-gray-800 dark:bg-gray-900/60"><GraduationCap className="text-primary-600 dark:text-primary-400" size={21} /><span>东南大学 · 电子科学与工程学院</span></div>
+            <div className="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 dark:border-gray-800 dark:bg-gray-900/60"><BriefcaseBusiness className="text-primary-600 dark:text-primary-400" size={21} /><span>NI 实习经历 · myRIO / LabVIEW / FPGA</span></div>
+          </div>
         </div>
       </section>
 
-      {/* Bio */}
-      <section className="mb-16">
-        <div className="prose prose-gray dark:prose-invert prose-lg max-w-none">
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-            我目前专注于 <strong>电子器件设计与制造</strong> 以及{" "}
-            <strong>FPGA 编程</strong> 领域的学习与研究。
-            对嵌入式系统、可编程逻辑和半导体器件有着浓厚的兴趣，
-            享受从底层硬件到上层软件的全栈式探索过程。
-          </p>
+      <section className="mt-20 grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">Experience</p>
+          <h2 className="mt-3 text-3xl font-bold text-gray-950 dark:text-white">实习经历</h2>
+          <div className="mt-8 border-l-2 border-primary-200 pl-6 dark:border-primary-900">
+            <p className="text-sm font-semibold text-primary-600 dark:text-primary-400">NI · 实习期间</p>
+            <h3 className="mt-2 text-xl font-bold text-gray-900 dark:text-white">面向工程问题理解软硬件协同</h3>
+            <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">在 NI 相关实践中接触 LabVIEW、myRIO 与 FPGA 图像处理流程，围绕摄像头采集、灰度化、RT/FPGA 数据交换和边缘处理，理解实时系统中的模块边界、数据通路与验证方法。</p>
+          </div>
+        </div>
+        <div className="rounded-3xl border border-gray-200 bg-gray-50/80 p-7 dark:border-gray-800 dark:bg-gray-900/50 sm:p-9">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-gray-400">Engineering notes</p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {[["工具链", "LabVIEW / NI-RIO / myRIO"], ["数据通路", "RT → FPGA → RT / DMA FIFO"], ["图像链路", "Camera → Gray → Gaussian → Canny"], ["工程方法", "先拆边界，再做验证"]].map(([label, value]) => <div key={label}><p className="text-sm text-gray-500 dark:text-gray-500">{label}</p><p className="mt-1 font-semibold text-gray-900 dark:text-gray-100">{value}</p></div>)}
+          </div>
+          <p className="mt-7 border-t border-gray-200 pt-5 text-sm leading-6 text-gray-500 dark:border-gray-800 dark:text-gray-500">相关项目仍在持续整理；页面只呈现已确认的工程路径，不把未完成的硬件构建或实测结果写成最终结论。</p>
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-2">
-          <Wrench
-            size={24}
-            className="text-primary-600 dark:text-primary-400"
-          />
-          技能与方向
-        </h2>
-        <div className="grid gap-6 sm:grid-cols-3">
-          {skillCategories.map((cat) => (
-            <div
-              key={cat.title}
-              className={`rounded-xl border border-gray-200/80 dark:border-gray-800/80 p-6 ${cat.bg} hover:shadow-md hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 bg-gradient-to-br from-white via-white to-blue-50/20 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/20`}
-            >
-              <cat.icon size={28} className={`mb-3 ${cat.color}`} />
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
-                {cat.title}
-              </h3>
-              <ul className="space-y-1.5">
-                {cat.skills.map((skill) => (
-                  <li
-                    key={skill}
-                    className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1.5"
-                  >
-                    <span
-                      className={`w-1 h-1 rounded-full ${cat.color} opacity-60`}
-                    />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <section className="mt-20">
+        <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">Three directions</p><h2 className="mt-3 text-3xl font-bold text-gray-950 dark:text-white">现在正在做什么</h2></div><p className="max-w-md text-sm leading-6 text-gray-500 dark:text-gray-400">不再罗列孤立技能，而是用具体问题、工程链路和可复现作品来描述能力边界。</p></div>
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {directions.map((direction) => <article key={direction.number} className="group rounded-3xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-gray-800 dark:bg-gray-950 dark:hover:border-primary-800"><div className="flex items-start justify-between"><div className="rounded-2xl bg-gray-100 p-3 text-primary-600 dark:bg-gray-900 dark:text-primary-400"><direction.icon size={24} /></div><span className="font-mono text-sm text-gray-400">{direction.number}</span></div><p className="mt-8 text-[11px] font-bold tracking-[0.2em] text-gray-400">{direction.eyebrow}</p><h3 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">{direction.title}</h3><p className="mt-4 min-h-24 leading-7 text-gray-600 dark:text-gray-400">{direction.description}</p><ul className="mt-5 space-y-3 border-t border-gray-100 pt-5 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-300">{direction.items.map((item) => <li key={item} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" />{item}</li>)}</ul><div className="mt-7"><ProjectLink href={direction.href} label={direction.linkLabel} external={direction.href.startsWith("http")} /></div></article>)}
         </div>
       </section>
 
-      {/* Contact */}
-      <section>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-          <Mail size={24} className="text-primary-600 dark:text-primary-400" />
-          联系方式
-        </h2>
-        <div className="flex flex-wrap gap-4">
-          {SITE_CONFIG.social.github && (
-            <a
-              href={SITE_CONFIG.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-sm transition-all"
-            >
-              <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              GitHub
-            </a>
-          )}
-          <a
-            href="tencent://message/?uin=3178144936"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-sm transition-all"
-          >
-            <MessageCircle size={18} />
-            QQ: 3178144936
-          </a>
-          {SITE_CONFIG.social.email && (
-            <a
-              href={`mailto:${SITE_CONFIG.social.email}`}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-sm transition-all"
-            >
-              <Mail size={18} />
-              {SITE_CONFIG.social.email}
-            </a>
-          )}
+      <section className="mt-20">
+        <div className="flex items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-primary-400">Selected work</p><h2 className="mt-3 text-3xl font-bold text-gray-950 dark:text-white">作品集</h2></div><a href={SITE_CONFIG.social.github} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-2 text-sm font-semibold text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 sm:inline-flex"><GitBranch size={17} /> GitHub <ArrowUpRight size={15} /></a></div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {portfolio.map((project) => <a key={project.title} href={project.href} target={project.external ? "_blank" : undefined} rel={project.external ? "noopener noreferrer" : undefined} className="group flex min-h-48 flex-col justify-between rounded-3xl border border-gray-200 bg-gray-50/70 p-6 transition-colors hover:border-primary-300 hover:bg-white dark:border-gray-800 dark:bg-gray-900/40 dark:hover:border-primary-800 dark:hover:bg-gray-900"><div><p className="text-[10px] font-bold tracking-[0.18em] text-gray-400">{project.type}</p><h3 className="mt-3 text-xl font-bold text-gray-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">{project.title}</h3><p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400">{project.description}</p></div><span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-600 dark:text-primary-400">查看项目 <ArrowUpRight size={15} /></span></a>)}
         </div>
       </section>
+
+      <section className="mt-20 rounded-3xl border border-gray-200 p-7 dark:border-gray-800 sm:p-9"><div className="flex flex-wrap items-center justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-primary-600 dark:text-primary-400">Open to collaboration</p><h2 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">从可验证的小项目开始，持续把问题做深。</h2></div><ProjectLink href={SITE_CONFIG.social.github} label="访问 GitHub" external /></div></section>
     </div>
   );
 }
