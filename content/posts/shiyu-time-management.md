@@ -2,7 +2,7 @@
 title: "时屿：把值得记住的瞬间，放进时间里"
 date: "2026-09-13"
 description: "一款本地 Windows 时间管理与计时工具，用正计时、倒计时和时间轨道看见正在发生的事。"
-tags: ["工具", "时间管理", "Windows"]
+tags: ["技术", "工具", "时间管理", "Windows"]
 author: "Lu Zhiyong"
 ---
 
