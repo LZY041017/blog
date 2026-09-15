@@ -3,6 +3,7 @@ import { SITE_CONFIG, SITE_KEYWORDS } from "@/lib/constants";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import BackgroundVideo from "@/components/BackgroundVideo";
 import "@/app/globals.css";
 import "highlight.js/styles/github-dark.css";
 
@@ -62,15 +63,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen">
-        <div className="site-video-background" aria-hidden="true">
-          <video className="site-video-desktop" autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.webp">
-            <source src="/assets/video/main.mp4" type="video/mp4" />
-          </video>
-          <video className="site-video-mobile" autoPlay muted loop playsInline preload="metadata" poster="/assets/visual/p3-inspired-city-night-hero.webp">
-            <source src="/assets/video/mobile-main.mp4" type="video/mp4" />
-          </video>
-          <div className="site-video-overlay" />
-        </div>
+        <BackgroundVideo />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
