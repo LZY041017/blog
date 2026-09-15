@@ -39,8 +39,8 @@ export default function HomePage() {
           <div className="flex items-start justify-between"><span className="rounded-2xl bg-gray-100/70 p-3 text-emerald-600 dark:bg-gray-900/70 dark:text-emerald-400"><Gamepad2 size={22} /></span><span className="font-mono text-sm text-gray-400">04</span></div>
           <p className="mt-8 text-[10px] font-bold tracking-[0.22em] text-gray-400">STEAM / CREATIVE LAB</p>
           <h2 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">课业之外</h2>
-          <p className="mt-3 max-w-md leading-7 text-gray-600 dark:text-gray-400">看看最近在玩的游戏，也看看正在建设中的术力口音乐创作空间。</p>
-          <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold"><Link href="/steam/" className="text-primary-600 hover:text-primary-500 dark:text-primary-400">Steam <ArrowUpRight size={15} className="inline" /></Link><Link href="/creative/" className="text-fuchsia-600 hover:text-fuchsia-500 dark:text-fuchsia-400">术力口专区 <ArrowUpRight size={15} className="inline" /></Link></div>
+          <p className="mt-3 max-w-md leading-7 text-gray-600 dark:text-gray-400">看看最近在玩的游戏，也看看正在建设中的术力口与 PTCG 个人分区。</p>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold"><Link href="/steam/" className="text-primary-600 hover:text-primary-500 dark:text-primary-400">Steam <ArrowUpRight size={15} className="inline" /></Link><Link href="/creative/" className="text-fuchsia-600 hover:text-fuchsia-500 dark:text-fuchsia-400">术力口专区 <ArrowUpRight size={15} className="inline" /></Link><Link href="/ptcg/" className="text-orange-600 hover:text-orange-500 dark:text-orange-400">PTCG <ArrowUpRight size={15} className="inline" /></Link></div>
         </div>
       </section>
 

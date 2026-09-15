@@ -15,6 +15,7 @@ export const SITE_CONFIG = {
     { label: "随想", href: "/thoughts" },
     { label: "Steam", href: "/steam" },
     { label: "术力口", href: "/creative" },
+    { label: "PTCG", href: "/ptcg" },
     { label: "自我", href: "/about" },
   ],
   postsPerPage: 10,
