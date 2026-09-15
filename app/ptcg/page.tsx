@@ -27,7 +27,7 @@ export default function PTCGPage() {
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">火焰鸟 <span className="text-orange-500">Moltres</span></h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-gray-700 dark:text-gray-300">这里记录我与 PTCG 的对局、卡组和线下活动。</p>
             <div className="mt-8 max-w-sm">
-              <div className="rounded-2xl border border-orange-200/80 bg-white/65 p-4 dark:border-orange-900/60 dark:bg-gray-950/45"><div className="flex items-center gap-2 text-sm font-semibold text-gray-950 dark:text-white"><MapPin size={17} className="text-orange-500" />主要活动半径</div><p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">东南大学 PTCG 社群<br />南京景枫宝可梦官方道馆</p></div>
+              <div className="rounded-2xl border border-orange-200/80 bg-white/65 p-4 dark:border-orange-900/60 dark:bg-gray-950/45"><div className="flex items-center gap-2 text-sm font-semibold text-gray-950 dark:text-white"><MapPin size={17} className="text-orange-500" />主要活动半径</div><p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">东南大学 PTCG 社群<br />南京景枫宝可梦官方道馆</p><p className="mt-3 border-t border-orange-200/70 pt-3 text-sm text-gray-600 dark:border-orange-900/50 dark:text-gray-400">PTCG Live ID：<span className="font-mono font-semibold text-orange-700 dark:text-orange-300">Togek1ss</span></p></div>
             </div>
           </div>
         </div>
