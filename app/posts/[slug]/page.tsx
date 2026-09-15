@@ -8,7 +8,20 @@ import { SITE_CONFIG } from "@/lib/constants";
 import MarkdownContent from "@/components/MarkdownContent";
 import TagBadge from "@/components/TagBadge";
 import Comment from "@/components/Comment";
+import PhotoCarousel from "@/components/PhotoCarousel";
 import Link from "next/link";
+
+const qixiaPhotos = [
+  { src: "/assets/posts/qixia-mountain/maple-path.webp", alt: "栖霞山枫林山路", caption: "山路入秋，游客沿着枫林向前" },
+  { src: "/assets/posts/qixia-mountain/red-maple.webp", alt: "蓝天下的红色枫叶", caption: "抬头所见的红叶" },
+  { src: "/assets/posts/qixia-mountain/maple-leaves.webp", alt: "近处的红色枫叶", caption: "近处的枫叶，胜过远景的想象" },
+  { src: "/assets/posts/qixia-mountain/roof-and-maples.webp", alt: "枫叶掩映下的传统屋檐", caption: "枫叶掩映下的屋檐" },
+  { src: "/assets/posts/qixia-mountain/pagoda.webp", alt: "秋色中的栖霞寺塔影", caption: "秋色里的栖霞寺塔影" },
+  { src: "/assets/posts/qixia-mountain/wind-chimes.webp", alt: "栖霞山檐下风铃", caption: "檐下风铃与山寺的日常" },
+  { src: "/assets/posts/qixia-mountain/qixia-temple.webp", alt: "栖霞寺建筑与秋树", caption: "栖霞寺檐角与秋树" },
+  { src: "/assets/posts/qixia-mountain/yangtze-mist.webp", alt: "薄雾中的长江", caption: "薄雾中的长江" },
+  { src: "/assets/posts/qixia-mountain/yangtze-boats.webp", alt: "江面上的货船", caption: "山顶望见的江面与货船" },
+];
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -108,6 +121,19 @@ export default async function PostPage({ params }: Props) {
             alt={post.title}
             className="w-full max-h-96 object-cover rounded-none sm:rounded-xl"
           />
+        </div>
+      )}
+
+      {slug === "qixia-mountain" && (
+        <div className="not-prose mb-10">
+          <div className="mb-3 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary-600 dark:text-primary-400">现场影像</p>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">沿着山路、寺院与江面，定格这次秋日登山</p>
+            </div>
+            <span className="shrink-0 text-xs text-gray-400 dark:text-gray-500">每 5 秒切换</span>
+          </div>
+          <PhotoCarousel photos={qixiaPhotos} />
         </div>
       )}
 

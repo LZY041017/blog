@@ -106,6 +106,21 @@ body > footer {
   @apply text-primary-600 dark:text-primary-400 no-underline hover:underline;
 }
 
+@keyframes qixia-carousel-fade {
+  from { opacity: 0.35; transform: scale(1.015); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.qixia-carousel-image {
+  animation: qixia-carousel-fade 500ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qixia-carousel-image {
+    animation: none;
+  }
+}
+
 /* Highlight.js theme overrides */
 .hljs {
   @apply bg-gray-50 dark:bg-gray-900;
