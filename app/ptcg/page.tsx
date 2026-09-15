@@ -42,7 +42,7 @@ export default function PTCGPage() {
         </div>
       </section>
 
-      <p className="mt-10 text-sm text-gray-500 dark:text-gray-400">卡图仅作为本分区的个人主视觉展示。<a href="https://www.pokemon.com/us/pokemon-tcg" target="_blank" rel="noreferrer" className="ml-1 inline-flex items-center gap-1 text-orange-600 hover:text-orange-500 dark:text-orange-400">了解 Pokémon TCG <ArrowUpRight size={14} /></a></p>
+      <p className="mt-10 text-sm text-gray-500 dark:text-gray-400">卡图仅作为本分区的个人主视觉展示。<a href="https://www.pokemon.cn/tcg-home" target="_blank" rel="noreferrer" className="ml-1 inline-flex items-center gap-1 text-orange-600 hover:text-orange-500 dark:text-orange-400">了解宝可梦集换式卡牌游戏 <ArrowUpRight size={14} /></a></p>
     </div>
   );
 }
