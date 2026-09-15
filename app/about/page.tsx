@@ -75,7 +75,7 @@ export default function AboutPage() {
         <div className="relative grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
           <div>
             <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-primary-600 dark:text-primary-400">Personal resume / portfolio</p>
-            <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">你好，<span className="block text-primary-600 dark:text-primary-400">欢迎来到我的主页。</span></h1>
+            <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">关于我，<span className="block text-primary-600 dark:text-primary-400">以及我正在做的事。</span></h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">我是 Lu Zhiyong，东南大学电子科学与工程学院本科在读。这里记录我的学习、实践与作品，也分享在 IC 设计、计算光刻和嵌入式系统方面的探索。</p>
           </div>
           <div className="grid gap-3 text-sm text-gray-600 dark:text-gray-300">
