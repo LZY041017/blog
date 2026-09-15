@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, Flame, MapPin, Trophy } from "lucide-react";
+import { ArrowUpRight, Flame, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "PTCG",
@@ -26,9 +26,8 @@ export default function PTCGPage() {
             <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.24em] text-orange-600 dark:text-orange-400"><Flame size={15} /> Pokémon Trading Card Game</p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">火焰鸟 <span className="text-orange-500">Moltres</span></h1>
             <p className="mt-5 max-w-xl text-lg leading-8 text-gray-700 dark:text-gray-300">这里记录我与 PTCG 的对局、卡组和线下活动。</p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="mt-8 max-w-sm">
               <div className="rounded-2xl border border-orange-200/80 bg-white/65 p-4 dark:border-orange-900/60 dark:bg-gray-950/45"><div className="flex items-center gap-2 text-sm font-semibold text-gray-950 dark:text-white"><MapPin size={17} className="text-orange-500" />主要活动半径</div><p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">东南大学 PTCG 社群<br />南京景枫宝可梦官方道馆</p></div>
-              <div className="rounded-2xl border border-orange-200/80 bg-white/65 p-4 dark:border-orange-900/60 dark:bg-gray-950/45"><div className="flex items-center gap-2 text-sm font-semibold text-gray-950 dark:text-white"><Trophy size={17} className="text-orange-500" />栏目状态</div><p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">对战记录正在整理<br />暂不填入未核实的成绩</p></div>
             </div>
           </div>
         </div>
