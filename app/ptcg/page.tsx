@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowUpRight, Flame, MapPin } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "PTCG",
@@ -31,6 +32,10 @@ export default function PTCGPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mt-12 rounded-3xl border border-orange-200/70 bg-white/65 p-6 shadow-sm backdrop-blur-md dark:border-orange-950/60 dark:bg-gray-950/55 sm:p-8" aria-labelledby="ptcg-notes-title">
+        <div className="flex flex-wrap items-start justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-600 dark:text-orange-400">PTCG NOTES · 01</p><h2 id="ptcg-notes-title" className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">从线上模拟到五公里外的官方道馆</h2><p className="mt-3 max-w-2xl leading-7 text-gray-600 dark:text-gray-400">一篇关于入坑方式、竞技思维、多龙巴鲁托、线下活动半径与兴趣迁移性的阶段性记录。</p></div><Link href="/posts/ptcg-entry-stage-summary/" className="inline-flex shrink-0 items-center gap-1 rounded-full border border-orange-200 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:bg-orange-50 dark:border-orange-900 dark:text-orange-300 dark:hover:bg-orange-950/40">阅读文章 <ArrowUpRight size={15} /></Link></div>
       </section>
 
       <section className="mt-16" aria-labelledby="match-records-title">
