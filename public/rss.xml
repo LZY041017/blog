@@ -6,14 +6,37 @@
     <link>https://zhiyonglu.top</link>
     <atom:link href="https://zhiyonglu.top/rss.xml" rel="self" type="application/rss+xml"/>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 13 Sep 2026 04:57:42 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 13:57:23 GMT</lastBuildDate>
     
+    <item>
+      <title><![CDATA[从会展开到开始设计胜法：我入坑 PTCG 两天后的五局复盘]]></title>
+      <description><![CDATA[把今晚五局 Dragapult ex 对战放回同一条成长曲线里：从起手、进化链和第二攻击手，到 Prize Mapping、伤害预铺、资源价值与终局强制线，也记录一个新手如何把聪明的复盘变成稳定执行。]]></description>
+      <link>https://zhiyonglu.top/posts/ptcg-first-five-games</link>
+      <guid isPermaLink="true">https://zhiyonglu.top/posts/ptcg-first-five-games</guid>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <category>随想</category>
+      <category>PTCG</category>
+      <category>宝可梦</category>
+      <category>竞技</category>
+    </item>
+    <item>
+      <title><![CDATA[从线上模拟到五公里外的官方道馆：我的 PTCG 入坑阶段总结]]></title>
+      <description><![CDATA[从 Pokémon TCG Live、模拟器和多龙巴鲁托构筑出发，记录我走向南京线下官方道馆的 PTCG 入坑阶段。]]></description>
+      <link>https://zhiyonglu.top/posts/ptcg-entry-stage-summary</link>
+      <guid isPermaLink="true">https://zhiyonglu.top/posts/ptcg-entry-stage-summary</guid>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+      <category>PTCG</category>
+      <category>随想</category>
+      <category>游戏</category>
+      <category>宝可梦</category>
+    </item>
     <item>
       <title><![CDATA[时光涂涂：把一周日程画出来]]></title>
       <description><![CDATA[一个本地 Windows 周计划工具，用可视化时间块整理课程、任务和临时安排。]]></description>
       <link>https://zhiyonglu.top/posts/shiguang-timepaint</link>
       <guid isPermaLink="true">https://zhiyonglu.top/posts/shiguang-timepaint</guid>
       <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
       <category>工具</category>
       <category>日程</category>
       <category>效率</category>
@@ -24,6 +47,7 @@
       <link>https://zhiyonglu.top/posts/shinian-memory-aid</link>
       <guid isPermaLink="true">https://zhiyonglu.top/posts/shinian-memory-aid</guid>
       <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
       <category>工具</category>
       <category>记忆</category>
       <category>学习</category>
@@ -34,6 +58,7 @@
       <link>https://zhiyonglu.top/posts/shiyu-time-management</link>
       <guid isPermaLink="true">https://zhiyonglu.top/posts/shiyu-time-management</guid>
       <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category>技术</category>
       <category>工具</category>
       <category>时间管理</category>
       <category>Windows</category>
