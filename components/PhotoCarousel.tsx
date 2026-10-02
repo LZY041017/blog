@@ -36,13 +36,7 @@ export default function PhotoCarousel({ photos, interval = 5000 }: PhotoCarousel
   return (
     <section className="qixia-carousel overflow-hidden rounded-2xl border border-gray-200/80 bg-white/70 shadow-sm dark:border-gray-700/70 dark:bg-gray-900/60" aria-label="栖霞山现场影像">
       <div className="relative aspect-[4/3] min-h-[300px] overflow-hidden bg-gray-100 sm:aspect-[16/9] sm:min-h-0 dark:bg-gray-950">
-        <img
-          key={`backdrop-${photo.src}`}
-          src={photo.src}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-25 blur-2xl"
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-slate-100/60 to-blue-100/60 dark:from-gray-950/90 dark:via-slate-900/75 dark:to-blue-950/70" />
         <div className="absolute inset-0 bg-white/30 dark:bg-black/30" />
         <img
           key={photo.src}

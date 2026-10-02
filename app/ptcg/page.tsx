@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function PTCGPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-      <section className="relative overflow-hidden rounded-[2rem] border border-orange-200/80 bg-gradient-to-br from-orange-50/90 via-white/80 to-amber-100/70 p-6 shadow-sm backdrop-blur-md dark:border-orange-950/70 dark:from-orange-950/45 dark:via-gray-950/75 dark:to-amber-950/35 sm:p-10">
+      <section className="relative overflow-hidden rounded-[2rem] border border-orange-200/80 bg-gradient-to-br from-orange-50/95 via-white/92 to-amber-100/88 p-6 shadow-sm dark:border-orange-950/70 dark:from-orange-950/80 dark:via-gray-950/90 dark:to-amber-950/70 sm:p-10">
         <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-orange-400/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-10 h-56 w-56 rounded-full bg-amber-300/20 blur-3xl" />
         <div className="relative grid items-center gap-10 md:grid-cols-[minmax(230px,0.8fr)_1.2fr]">
@@ -34,17 +34,17 @@ export default function PTCGPage() {
         </div>
       </section>
 
-      <section className="mt-12 rounded-3xl border border-orange-200/70 bg-white/65 p-6 shadow-sm backdrop-blur-md dark:border-orange-950/60 dark:bg-gray-950/55 sm:p-8" aria-labelledby="ptcg-notes-title">
+      <section className="mt-12 rounded-3xl border border-orange-200/70 bg-white/90 p-6 shadow-sm dark:border-orange-950/60 dark:bg-gray-950/85 sm:p-8" aria-labelledby="ptcg-notes-title">
         <div className="flex flex-wrap items-start justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-600 dark:text-orange-400">PTCG NOTES · 01</p><h2 id="ptcg-notes-title" className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">从线上模拟到五公里外的官方道馆</h2><p className="mt-3 max-w-2xl leading-7 text-gray-600 dark:text-gray-400">一篇关于入坑方式、竞技思维、多龙巴鲁托、线下活动半径与兴趣迁移性的阶段性记录。</p></div><Link href="/posts/ptcg-entry-stage-summary/" className="inline-flex shrink-0 items-center gap-1 rounded-full border border-orange-200 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:bg-orange-50 dark:border-orange-900 dark:text-orange-300 dark:hover:bg-orange-950/40">阅读文章 <ArrowUpRight size={15} /></Link></div>
       </section>
 
-      <section className="mt-6 rounded-3xl border border-orange-200/70 bg-white/65 p-6 shadow-sm backdrop-blur-md dark:border-orange-950/60 dark:bg-gray-950/55 sm:p-8" aria-labelledby="ptcg-notes-02-title">
+      <section className="mt-6 rounded-3xl border border-orange-200/70 bg-white/90 p-6 shadow-sm dark:border-orange-950/60 dark:bg-gray-950/85 sm:p-8" aria-labelledby="ptcg-notes-02-title">
         <div className="flex flex-wrap items-start justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-600 dark:text-orange-400">PTCG NOTES · 02</p><h2 id="ptcg-notes-02-title" className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">从会展开到开始设计胜法</h2><p className="mt-3 max-w-2xl leading-7 text-gray-600 dark:text-gray-400">五局 Dragapult ex 对战复盘：第二攻击手、Prize Mapping、伤害预铺、资源价值，以及两天后的成长速度与 WCS 潜力判断。</p></div><Link href="/posts/ptcg-first-five-games/" className="inline-flex shrink-0 items-center gap-1 rounded-full border border-orange-200 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:bg-orange-50 dark:border-orange-900 dark:text-orange-300 dark:hover:bg-orange-950/40">阅读文章 <ArrowUpRight size={15} /></Link></div>
       </section>
 
       <section className="mt-16" aria-labelledby="match-records-title">
         <div className="mb-6 flex items-end justify-between gap-4"><div><p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600 dark:text-orange-400">Decks & Results</p><h2 id="match-records-title" className="text-3xl font-bold text-gray-950 dark:text-white">比赛经历</h2></div><span className="rounded-full border border-gray-200 bg-white/60 px-3 py-1 text-xs text-gray-500 dark:border-gray-800 dark:bg-gray-950/50 dark:text-gray-400">待补充</span></div>
-        <div className="overflow-hidden rounded-3xl border border-gray-200/80 bg-white/65 shadow-sm backdrop-blur-md dark:border-gray-800/80 dark:bg-gray-950/55">
+        <div className="overflow-hidden rounded-3xl border border-gray-200/80 bg-white/90 shadow-sm dark:border-gray-800/80 dark:bg-gray-950/85">
           <div className="grid grid-cols-[1.2fr_1fr_0.6fr] border-b border-gray-200/80 bg-gray-50/70 px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-gray-500 dark:border-gray-800/80 dark:bg-gray-900/60 dark:text-gray-400 sm:px-7"><span>比赛经历</span><span>使用卡组</span><span>名次</span></div>
           <div className="flex min-h-32 items-center justify-center px-5 py-8 text-center text-sm text-gray-500 dark:text-gray-400 sm:px-7">暂未填充比赛记录，待实际经历整理后逐行补入。</div>
         </div>

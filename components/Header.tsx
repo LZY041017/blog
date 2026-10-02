@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -10,12 +10,22 @@ import ThemeToggle from "./ThemeToggle";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const frameRef = useRef<number | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      if (frameRef.current !== null) return;
+      frameRef.current = window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 10);
+        frameRef.current = null;
+      });
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
+    };
   }, []);
 
   useEffect(() => {
