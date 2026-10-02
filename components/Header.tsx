@@ -29,10 +29,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-all duration-200 ${
+      className={`sticky top-0 z-50 border-b transition-colors duration-200 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md border-gray-200 dark:bg-gray-950/80 dark:border-gray-800"
-          : "bg-white/70 border-transparent backdrop-blur-md dark:bg-gray-950/70"
+          ? "bg-white/90 border-gray-200 dark:bg-gray-950/90 dark:border-gray-800"
+          : "bg-white/82 border-transparent dark:bg-gray-950/82"
       }`}
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6">

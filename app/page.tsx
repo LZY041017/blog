@@ -27,7 +27,7 @@ export default function HomePage() {
 
       <section aria-label="主页导引" className="grid gap-4 sm:grid-cols-2">
         {portals.map(({ number, label, title, description, href, icon: Icon, accent }) => (
-          <Link key={title} href={href} prefetch={false} className="group rounded-3xl border border-gray-200/80 bg-white/58 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-gray-800/80 dark:bg-gray-950/52 dark:hover:border-primary-800 sm:p-7">
+          <Link key={title} href={href} prefetch={false} className="group rounded-3xl border border-gray-200/80 bg-white/78 p-6 shadow-sm transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-primary-300 dark:border-gray-800/80 dark:bg-gray-950/75 dark:hover:border-primary-800 sm:p-7">
             <div className="flex items-start justify-between"><span className={`rounded-2xl bg-gray-100/70 p-3 ${accent} dark:bg-gray-900/70`}><Icon size={22} /></span><span className="font-mono text-sm text-gray-400">{number}</span></div>
             <p className="mt-8 text-[10px] font-bold tracking-[0.22em] text-gray-400">{label}</p>
             <h2 className="mt-3 flex items-center gap-2 text-2xl font-bold text-gray-950 dark:text-white">{title}<ArrowUpRight size={20} className="text-primary-500 opacity-0 transition-opacity group-hover:opacity-100" /></h2>
@@ -35,7 +35,7 @@ export default function HomePage() {
           </Link>
         ))}
 
-        <div className="group rounded-3xl border border-gray-200/80 bg-white/58 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-500/10 dark:border-gray-800/80 dark:bg-gray-950/52 dark:hover:border-primary-800 sm:p-7">
+        <div className="group rounded-3xl border border-gray-200/80 bg-white/78 p-6 shadow-sm transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-primary-300 dark:border-gray-800/80 dark:bg-gray-950/75 dark:hover:border-primary-800 sm:p-7">
           <div className="flex items-start justify-between"><span className="rounded-2xl bg-gray-100/70 p-3 text-emerald-600 dark:bg-gray-900/70 dark:text-emerald-400"><Gamepad2 size={22} /></span><span className="font-mono text-sm text-gray-400">04</span></div>
           <p className="mt-8 text-[10px] font-bold tracking-[0.22em] text-gray-400">STEAM / CREATIVE LAB</p>
           <h2 className="mt-3 text-2xl font-bold text-gray-950 dark:text-white">课业之外</h2>
