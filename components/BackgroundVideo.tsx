@@ -1,19 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function BackgroundVideo() {
   const [ready, setReady] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setLoadVideo(true), 180);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <div className="site-video-background" aria-hidden="true">
       <video
         className={`site-video ${ready ? "site-video-ready" : ""}`}
-        autoPlay
+        autoPlay={loadVideo}
         muted
         loop
         playsInline
-        preload="auto"
+        preload={loadVideo ? "auto" : "none"}
         poster="/assets/visual/p3-inspired-city-night-hero.webp"
         onCanPlay={() => setReady(true)}
       >

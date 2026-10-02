@@ -1,3 +1,5 @@
+<!-- Last updated: 2026-10-02T10:07:54 | Last verified: never -->
+<!-- AGENTS-METADATA: agents_version=v0.9.7; generator_version=v0.9.7; default_language=中文 -->
 ---
 agents_version: v0.9.7
 generator_version: v0.9.7
@@ -5,6 +7,10 @@ default_language: 中文
 ---
 
 # Lu_Zhiyong's Blog
+
+## Precedence
+
+用户明确要求优先于本文件；随后依次遵循本项目规则、父级规则、全局 Codex 基线和通用默认规则。
 
 这是一个基于 Next.js 的个人博客，使用 Markdown 管理文章，通过 GitHub Actions 部署到 GitHub Pages，并绑定 `zhiyonglu.top`。
 

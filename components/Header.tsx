@@ -40,6 +40,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
+            prefetch={false}
             className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
             {SITE_CONFIG.title}
@@ -51,6 +52,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={false}
                 className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-colors after:absolute after:bottom-1 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-current after:transition-opacity ${
                   isActive(item.href)
                     ? "text-primary-600 bg-primary-50 after:opacity-100 dark:text-primary-400 dark:bg-primary-950"
@@ -87,6 +89,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={false}
                 className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
                   isActive(item.href)
                     ? "text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-950"

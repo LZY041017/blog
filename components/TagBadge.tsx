@@ -16,6 +16,7 @@ export default function TagBadge({ tag, active = false, count }: TagBadgeProps) 
   return (
     <Link
       href={`/tags/${encodeURIComponent(tag)}/`}
+      prefetch={false}
       className={`${baseClasses} ${activeClasses}`}
     >
       {tag}
