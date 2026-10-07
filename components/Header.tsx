@@ -16,12 +16,17 @@ function HeaderContent({ pathname }: { pathname: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const frameRef = useRef<number | null>(null);
+  const scrolledRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (frameRef.current !== null) return;
       frameRef.current = window.requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 10);
+        const nextScrolled = window.scrollY > 10;
+        if (nextScrolled !== scrolledRef.current) {
+          scrolledRef.current = nextScrolled;
+          setScrolled(nextScrolled);
+        }
         frameRef.current = null;
       });
     };

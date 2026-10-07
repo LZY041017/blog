@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useMediaQuery } from "@/lib/use-media-query";
 
-function HomeVideo() {
+function SiteVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [ready, setReady] = useState(false);
+  const [readySource, setReadySource] = useState("");
   const [loadVideo, setLoadVideo] = useState(false);
   const mobile = useMediaQuery("(max-width: 767px)");
+  const source = mobile ? "/assets/video/mobile-main.mp4" : "/assets/video/main.mp4";
 
   useEffect(() => {
     const timer = window.setTimeout(() => setLoadVideo(true), 180);
@@ -35,21 +35,20 @@ function HomeVideo() {
   return (
     <video
       ref={videoRef}
-      className={`site-video ${ready ? "site-video-ready" : ""}`}
-      src={mobile ? "/assets/video/mobile-main.mp4" : "/assets/video/main.mp4"}
+      className={`site-video ${readySource === source ? "site-video-ready" : ""}`}
+      src={source}
       muted loop playsInline preload="auto"
       poster="/assets/visual/p3-inspired-city-night-hero.webp"
-      onCanPlay={() => setReady(true)}
+      onCanPlay={() => setReadySource(source)}
     />
   );
 }
 
 export default function BackgroundVideo() {
-  const pathname = usePathname();
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   return (
     <div className="site-video-background" aria-hidden="true">
-      {pathname === "/" && !reducedMotion && <HomeVideo />}
+      {!reducedMotion && <SiteVideo />}
       <div className="site-video-overlay" />
     </div>
   );

@@ -6,12 +6,17 @@ import { ArrowUp } from "lucide-react";
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
   const frameRef = useRef<number | null>(null);
+  const visibleRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (frameRef.current !== null) return;
       frameRef.current = window.requestAnimationFrame(() => {
-        setVisible(window.scrollY > 400);
+        const nextVisible = window.scrollY > 400;
+        if (nextVisible !== visibleRef.current) {
+          visibleRef.current = nextVisible;
+          setVisible(nextVisible);
+        }
         frameRef.current = null;
       });
     };

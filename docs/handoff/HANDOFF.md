@@ -13,3 +13,11 @@
 待关注：npm audit 仍报告 14 个传递依赖问题（7 high、7 moderate、0 critical），主要来自 braces、postcss-selector-parser 与 sprintf-js。ESLint 9 已提示停止支持，而当前 Next.js 配套的 import/react/jsx-a11y 插件尚未声明支持 ESLint 10；后续升级需整套插件兼容验证。Steam Worker 使用模拟上游与缓存验证，未部署真实 Worker；Giscus 未验证真实账号评论发送。未推送远程或发布网站。
 
 后续入口：`npm ci` → `npm run check`。构建最后的 `scripts/verify-export.mjs` 会检查所有 sitemap 对应静态页面，防止标签页静默导出错误文档。发布前单独部署 Worker，并检查 Actions 变量和正式域名。
+
+## 滚动与全站视频背景跟进
+
+前述修复已以 `7f72fad` 推送 main，GitHub Pages Actions `37580850649` 部署成功。用户随后反馈滚轮卡顿、内页缺少动态视频。
+
+恢复根布局中的全站单个播放器，客户端栏目切换时保留同一个 video 元素，移动端仍使用 mobile-main.mp4，尊重系统减少动效设置和页面可见性。视频文件、分辨率与装饰光晕保留；移除视频逐帧饱和度滤镜与额外缩放，为固定背景建立独立合成边界。首页六张文章卡片采用正常布局，移除估算高度的 content-visibility；导航和回顶按钮仅在跨越滚动阈值时更新 React 状态。
+
+验证：npm run check、npm run typecheck 均通过；桌面各栏目、移动文章和标签页视频 readyState=4、正在播放，栏目导航保留同一播放器；减少动效时没有 video 元素。修复版浏览器滚轮采样 449 个帧间隔，P95 12.2ms、最大 24.1ms，没有超过 33.4ms 的间隔、长任务或布局偏移，页面高度保持 1956px。该单次本机浏览器采样没有复现用户的严重卡顿，不能代表所有设备或 GPU 合成帧率；继续反馈时需按实际浏览器和设备定位。

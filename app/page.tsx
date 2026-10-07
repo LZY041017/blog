@@ -44,7 +44,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-latest-posts mt-24" aria-labelledby="latest-posts-title">
+      <section className="mt-24" aria-labelledby="latest-posts-title">
         <div className="mb-8 flex items-end justify-between gap-4"><div><p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400 dark:text-gray-500">继续阅读</p><h2 id="latest-posts-title" className="text-3xl font-bold text-gray-900 dark:text-white">最近更新</h2></div><Link prefetch={false} href="/posts/" className="text-sm font-medium text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300">查看全部 <ArrowUpRight size={15} className="inline" /></Link></div>
         {posts.length === 0 ? <div className="rounded-3xl border border-dashed border-gray-300/70 p-12 text-center text-gray-500 dark:border-gray-700/70 dark:text-gray-400">文章正在整理中。</div> : <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{posts.slice(0, 6).map((post) => <PostCard key={post.slug} post={post} />)}</div>}
       </section>
