@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink, Pause, Play } from "lucide-react";
+import { useMediaQuery } from "@/lib/use-media-query";
 
 interface Photo {
   src: string;
@@ -17,20 +18,23 @@ interface PhotoCarouselProps {
 export default function PhotoCarousel({ photos, interval = 5000 }: PhotoCarouselProps) {
   const [active, setActive] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const playing = isPlaying && !reducedMotion;
 
   useEffect(() => {
-    if (!isPlaying || photos.length < 2) return;
+    if (!playing || photos.length < 2) return;
 
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % photos.length);
     }, interval);
 
     return () => window.clearInterval(timer);
-  }, [interval, isPlaying, photos.length]);
+  }, [interval, playing, photos.length]);
 
   if (!photos.length) return null;
 
-  const photo = photos[active];
+  const currentIndex = active % photos.length;
+  const photo = photos[currentIndex];
   const goTo = (index: number) => setActive((index + photos.length) % photos.length);
 
   return (
@@ -48,7 +52,7 @@ export default function PhotoCarousel({ photos, interval = 5000 }: PhotoCarousel
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-4 pb-4 pt-16 text-white sm:px-6 sm:pb-5">
           <div className="min-w-0">
             <p className="truncate text-sm font-medium sm:text-base">{photo.caption}</p>
-            <p className="mt-1 text-xs text-white/65">{String(active + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}</p>
+            <p className="mt-1 text-xs text-white/65">{String(currentIndex + 1).padStart(2, "0")} / {String(photos.length).padStart(2, "0")}</p>
           </div>
           <a
             href={photo.src}
@@ -70,22 +74,21 @@ export default function PhotoCarousel({ photos, interval = 5000 }: PhotoCarousel
       </div>
 
       <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
-        <div className="flex min-w-0 items-center gap-1.5" role="tablist" aria-label="选择照片">
+        <div className="flex min-w-0 items-center gap-1.5" role="group" aria-label="选择照片">
           {photos.map((item, index) => (
             <button
               key={item.src}
               type="button"
               onClick={() => goTo(index)}
-              className={`h-1.5 rounded-full transition-all ${index === active ? "w-7 bg-primary-500" : "w-1.5 bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500"}`}
-              role="tab"
-              aria-selected={index === active}
+              className={`h-1.5 rounded-full transition-all ${index === currentIndex ? "w-7 bg-primary-500" : "w-1.5 bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-500"}`}
+              aria-pressed={index === currentIndex}
               aria-label={`第 ${index + 1} 张：${item.caption}`}
             />
           ))}
         </div>
-        <button type="button" onClick={() => setIsPlaying((playing) => !playing)} className="flex shrink-0 items-center gap-1.5 rounded-full px-2 py-1 text-xs text-gray-500 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white" aria-label={isPlaying ? "暂停轮播" : "继续轮播"}>
-          {isPlaying ? <Pause size={14} /> : <Play size={14} />}
-          {isPlaying ? "自动播放" : "已暂停"}
+        <button type="button" disabled={reducedMotion} onClick={() => setIsPlaying((value) => !value)} className="flex shrink-0 items-center gap-1.5 rounded-full px-2 py-1 text-xs text-gray-500 transition hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white" aria-label={playing ? "暂停轮播" : "继续轮播"}>
+          {playing ? <Pause size={14} /> : <Play size={14} />}
+          {playing ? "自动播放" : "已暂停"}
         </button>
       </div>
     </section>

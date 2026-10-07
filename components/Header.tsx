@@ -8,10 +8,14 @@ import { SITE_CONFIG } from "@/lib/constants";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
+  const pathname = usePathname();
+  return <HeaderContent key={pathname} pathname={pathname} />;
+}
+
+function HeaderContent({ pathname }: { pathname: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const frameRef = useRef<number | null>(null);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +25,7 @@ export default function Header() {
         frameRef.current = null;
       });
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -28,13 +33,9 @@ export default function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
-
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
@@ -57,12 +58,13 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden sm:flex items-center gap-1">
+          <nav aria-label="主导航" className="hidden sm:flex items-center gap-1">
             {SITE_CONFIG.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 prefetch={false}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-colors after:absolute after:bottom-1 after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-current after:transition-opacity ${
                   isActive(item.href)
                     ? "text-primary-600 bg-primary-50 after:opacity-100 dark:text-primary-400 dark:bg-primary-950"
@@ -84,6 +86,8 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800 transition-colors"
               aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -93,13 +97,14 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <nav className="sm:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+        <nav id="mobile-navigation" aria-label="移动导航" className="sm:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
           <div className="mx-auto max-w-4xl px-4 py-3 space-y-1">
             {SITE_CONFIG.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 prefetch={false}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
                   isActive(item.href)
                     ? "text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-950"

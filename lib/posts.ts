@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
+import { isPostSlug, parsePost, readPosts } from "./post-data.mjs";
 
 export interface PostMeta {
   slug: string;
@@ -22,62 +22,21 @@ const postsDirectory = path.join(process.cwd(), "content", "posts");
  * Read and parse all markdown posts, sorted by date (newest first).
  */
 export function getAllPosts(): Post[] {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
-  }
-
-  const fileNames = fs.readdirSync(postsDirectory);
-
-  const posts = fileNames
-    .filter((fileName) => fileName.endsWith(".md"))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, "");
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
-
-      return {
-        slug,
-        content,
-        title: data.title ?? slug,
-        date: data.date ? new Date(data.date).toISOString() : "",
-        description: data.description ?? "",
-        tags: data.tags ?? [],
-        author: data.author,
-        cover: data.cover,
-      } as Post;
-    })
-    .sort((a, b) => {
-      if (!a.date) return 1;
-      if (!b.date) return -1;
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
-  return posts;
+  return readPosts(postsDirectory);
 }
 
 /**
  * Get a single post by slug.
  */
 export function getPostBySlug(slug: string): Post | null {
+  if (!isPostSlug(slug)) return null;
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   if (!fs.existsSync(fullPath)) {
     return null;
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  return {
-    slug,
-    content,
-    title: data.title ?? slug,
-    date: data.date ? new Date(data.date).toISOString() : "",
-    description: data.description ?? "",
-    tags: data.tags ?? [],
-    author: data.author,
-    cover: data.cover,
-  };
+  return parsePost(fileContents, slug);
 }
 
 /**

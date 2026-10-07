@@ -24,15 +24,36 @@ export default function SteamPanel() {
   const [snapshot, setSnapshot] = useState<SteamSnapshot | null>(null);
   const [loading, setLoading] = useState(Boolean(apiUrl));
   const [error, setError] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!apiUrl) return;
-    fetch(apiUrl, { headers: { Accept: "application/json" } })
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 10000);
+    let active = true;
+    fetch(apiUrl, { headers: { Accept: "application/json" }, signal: controller.signal })
       .then((response) => (response.ok ? response.json() : Promise.reject()))
-      .then(setSnapshot)
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, []);
+      .then((data: SteamSnapshot) => {
+        if (!data || !Array.isArray(data.recentlyPlayedGames)) throw new Error("Invalid snapshot");
+        if (active) setSnapshot(data);
+      })
+      .catch(() => { if (active) setError(true); })
+      .finally(() => {
+        window.clearTimeout(timer);
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [attempt]);
+
+  const retry = () => {
+    setError(false);
+    setLoading(true);
+    setAttempt((current) => current + 1);
+  };
 
   return (
     <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
@@ -47,7 +68,7 @@ export default function SteamPanel() {
 
         {!apiUrl && <div className="mt-10 rounded-2xl border border-dashed border-gray-300 p-6 text-gray-600 dark:border-gray-700 dark:text-gray-400">Steam 同步接口正在配置中。后端上线后，这里会自动显示最近游玩记录。</div>}
         {loading && <div className="mt-10 flex items-center gap-2 text-gray-500"><RefreshCw className="animate-spin" size={17} />正在同步 Steam 数据…</div>}
-        {error && <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-amber-800 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-200">暂时无法读取 Steam 数据，将在下一次同步时重试。</div>}
+        {error && <div role="status" className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-amber-800 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-200">暂时无法读取 Steam 数据。<button type="button" onClick={retry} className="ml-3 underline underline-offset-4">重新同步</button></div>}
         {snapshot && <>
           <div className="mt-8 flex items-center gap-4">{snapshot.avatar && <img src={snapshot.avatar} alt="Steam avatar" className="h-14 w-14 rounded-2xl" />}<div><p className="font-semibold text-gray-950 dark:text-white">{snapshot.personaName || "Steam 玩家"}</p>{snapshot.profileUrl && <a className="mt-1 inline-flex items-center gap-1 text-sm text-primary-600 dark:text-primary-400" href={snapshot.profileUrl} target="_blank" rel="noreferrer">打开 Steam 主页 <ExternalLink size={14} /></a>}</div></div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{(snapshot.recentlyPlayedGames || []).map((game) => <div key={game.appid} className="rounded-2xl border border-gray-200/80 bg-white/90 p-4 dark:border-gray-800/80 dark:bg-gray-950/85"><div className="flex gap-3">{game.img_icon_url && <img src={game.img_icon_url} alt="" className="h-12 w-12 rounded-xl" />}<div><p className="font-semibold text-gray-900 dark:text-white">{game.name}</p><p className="mt-1 text-sm text-gray-500">{Math.round((game.playtime_forever || 0) / 60)} 小时</p></div></div></div>)}</div>

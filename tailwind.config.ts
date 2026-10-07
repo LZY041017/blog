@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: "class",
@@ -21,7 +22,15 @@ const config: Config = {
           700: "#1d4ed8",
           800: "#1e40af",
           900: "#1e3a8a",
+          950: "#172554",
         },
+      },
+      opacity: {
+        78: "0.78",
+        82: "0.82",
+        84: "0.84",
+        88: "0.88",
+        92: "0.92",
       },
       fontFamily: {
         sans: ["Inter", "Noto Sans SC", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -29,7 +38,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
 
 export default config;

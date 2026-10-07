@@ -35,7 +35,7 @@ author: "Lu Zhiyong"
 
 ## 修改站点
 
-- 修改站点标题、导航、GitHub 链接：`lib/constants.ts`；
+- 修改站点标题、导航、GitHub 链接：`lib/site-config.mjs`；
 - 修改文章卡片：`components/PostCard.tsx`；
 - 修改所有文章列表的共同布局：`components/PostCollectionPage.tsx`；
 - 修改全局样式：`app/globals.css`。

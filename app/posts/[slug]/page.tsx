@@ -42,10 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: `${SITE_CONFIG.url}/posts/${slug}/` },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
+      url: `${SITE_CONFIG.url}/posts/${slug}/`,
       publishedTime: post.date,
       tags: post.tags,
     },
@@ -151,7 +153,7 @@ export default async function PostPage({ params }: Props) {
       </div>
 
       {/* Comments */}
-      <Comment />
+      <Comment key={slug} />
     </div>
   );
 }

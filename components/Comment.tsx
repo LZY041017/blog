@@ -1,73 +1,62 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Comment() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted || !containerRef.current) return;
-
-    const getTheme = () =>
-      document.documentElement.classList.contains("dark") ? "dark" : "light";
-    const sendTheme = (theme: string) => {
-      const iframe = containerRef.current?.querySelector<HTMLIFrameElement>(
-        "iframe.giscus-frame",
-      );
-      iframe?.contentWindow?.postMessage(
-        { giscus: { setConfig: { theme } } },
-        "https://giscus.app",
-      );
+    const container = containerRef.current;
+    if (!container) return;
+    let frame: HTMLIFrameElement | null = null;
+    const sendTheme = () => frame?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: document.documentElement.classList.contains("dark") ? "dark" : "light" } } },
+      "https://giscus.app",
+    );
+    const syncFrame = () => {
+      const nextFrame = container.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
+      if (nextFrame !== frame) {
+        frame?.removeEventListener("load", sendTheme);
+        frame = nextFrame;
+        frame?.addEventListener("load", sendTheme);
+      }
+      sendTheme();
     };
-
-    // 清除已有的 Giscus（防止重复加载）
-    const existing = containerRef.current.querySelector("script");
-    if (existing) return;
+    const themeObserver = new MutationObserver(sendTheme);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    const frameObserver = new MutationObserver(syncFrame);
+    frameObserver.observe(container, { childList: true, subtree: true });
 
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "LZY041017/blog");
-    script.setAttribute("data-repo-id", "R_kgDOTP-5Tg");
-    script.setAttribute("data-category", "General");
-    script.setAttribute("data-category-id", "DIC_kwDOTP-5Ts4DAr3z");
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "1");
-    script.setAttribute("data-emit-metadata", "0");
-    script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", getTheme());
-    script.setAttribute("data-lang", "zh-CN");
-    script.setAttribute("crossorigin", "anonymous");
-    script.async = true;
-
-    containerRef.current.appendChild(script);
-
-    const observer = new MutationObserver(() => {
-      const theme = getTheme();
-      sendTheme(theme);
-      window.setTimeout(() => sendTheme(theme), 250);
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-
-    // The iframe is created asynchronously after the script loads.
-    const initialTheme = getTheme();
-    const timer = window.setTimeout(() => sendTheme(initialTheme), 500);
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(timer);
+    const attributes = {
+      "data-repo": "LZY041017/blog",
+      "data-repo-id": "R_kgDOTP-5Tg",
+      "data-category": "General",
+      "data-category-id": "DIC_kwDOTP-5Ts4DAr3z",
+      "data-mapping": "pathname",
+      "data-strict": "0",
+      "data-reactions-enabled": "1",
+      "data-emit-metadata": "0",
+      "data-input-position": "bottom",
+      "data-theme": document.documentElement.classList.contains("dark") ? "dark" : "light",
+      "data-lang": "zh-CN",
+      crossorigin: "anonymous",
     };
-  }, [mounted]);
+    Object.entries(attributes).forEach(([key, value]) => script.setAttribute(key, value));
+    script.async = true;
+    container.appendChild(script);
+    return () => {
+      themeObserver.disconnect();
+      frameObserver.disconnect();
+      frame?.removeEventListener("load", sendTheme);
+      container.replaceChildren();
+    };
+  }, []);
 
   return (
     <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-        评论
-      </h2>
+      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">评论</h2>
       <div ref={containerRef} className="giscus-shell" />
     </div>
   );

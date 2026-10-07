@@ -2,51 +2,54 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useMediaQuery } from "@/lib/use-media-query";
 
-export default function BackgroundVideo() {
-  const pathname = usePathname();
+function HomeVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
   const [loadVideo, setLoadVideo] = useState(false);
-  const isHome = pathname === "/";
+  const mobile = useMediaQuery("(max-width: 767px)");
 
   useEffect(() => {
-    setReady(false);
-    setLoadVideo(false);
-    if (!isHome) return;
-
     const timer = window.setTimeout(() => setLoadVideo(true), 180);
     return () => window.clearTimeout(timer);
-  }, [isHome]);
+  }, []);
 
   useEffect(() => {
+    if (!loadVideo) return;
     const video = videoRef.current;
     if (!video) return;
-    if (!isHome || !loadVideo) {
+    const syncPlayback = () => {
+      if (document.hidden) video.pause();
+      else void video.play().catch(() => undefined);
+    };
+    syncPlayback();
+    document.addEventListener("visibilitychange", syncPlayback);
+    return () => {
+      document.removeEventListener("visibilitychange", syncPlayback);
       video.pause();
-      return;
-    }
-    void video.play().catch(() => undefined);
-  }, [isHome, loadVideo]);
+    };
+  }, [loadVideo, mobile]);
 
+  if (!loadVideo) return null;
+  return (
+    <video
+      ref={videoRef}
+      className={`site-video ${ready ? "site-video-ready" : ""}`}
+      src={mobile ? "/assets/video/mobile-main.mp4" : "/assets/video/main.mp4"}
+      muted loop playsInline preload="auto"
+      poster="/assets/visual/p3-inspired-city-night-hero.webp"
+      onCanPlay={() => setReady(true)}
+    />
+  );
+}
+
+export default function BackgroundVideo() {
+  const pathname = usePathname();
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   return (
     <div className="site-video-background" aria-hidden="true">
-      <video
-        ref={videoRef}
-        className={`site-video ${ready ? "site-video-ready" : ""}`}
-        autoPlay={isHome && loadVideo}
-        muted
-        loop
-        playsInline
-        preload={isHome && loadVideo ? "auto" : "none"}
-        poster="/assets/visual/p3-inspired-city-night-hero.webp"
-        onCanPlay={() => setReady(true)}
-      >
-        {isHome && loadVideo && <>
-          <source media="(max-width: 767px)" src="/assets/video/mobile-main.mp4" type="video/mp4" />
-          <source src="/assets/video/main.mp4" type="video/mp4" />
-        </>}
-      </video>
+      {pathname === "/" && !reducedMotion && <HomeVideo />}
       <div className="site-video-overlay" />
     </div>
   );

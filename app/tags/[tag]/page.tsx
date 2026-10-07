@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllTags, getPostsByTag } from "@/lib/posts";
 import PostCollectionPage from "@/components/PostCollectionPage";
+import { resolveTag } from "@/lib/tag-path.mjs";
 
 interface Props {
   params: Promise<{ tag: string }>;
@@ -15,18 +16,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
-  const decodedTag = decodeURIComponent(tag);
+  const name = resolveTag(tag, getAllTags().map((item) => item.name)) ?? tag;
   return {
-    title: `标签: ${decodedTag}`,
-    description: `浏览带有 "${decodedTag}" 标签的文章`,
+    title: `标签: ${name}`,
+    description: `浏览带有 "${name}" 标签的文章`,
   };
 }
 
 export default async function TagPage({ params }: Props) {
   const { tag } = await params;
-  const decodedTag = decodeURIComponent(tag);
-  const posts = getPostsByTag(decodedTag);
   const allTags = getAllTags();
+  const name = resolveTag(tag, allTags.map((item) => item.name));
+  if (!name) notFound();
+  const posts = getPostsByTag(name);
 
-  return <PostCollectionPage title={`标签：${decodedTag}`} description={`共 ${posts.length} 篇文章`} posts={posts} tags={allTags} activeTag={decodedTag} emptyMessage="该标签下还没有文章" />;
+  return <PostCollectionPage title={`标签：${name}`} description={`共 ${posts.length} 篇文章`} posts={posts} tags={allTags} activeTag={name} emptyMessage="该标签下还没有文章" />;
 }
